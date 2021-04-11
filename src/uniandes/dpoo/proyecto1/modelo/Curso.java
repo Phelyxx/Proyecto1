@@ -7,6 +7,7 @@ import java.util.List;
 public class Curso 
 {
 	private String nombre;
+	private String codigo;
 	private int creditos;
 	private boolean esObligatorio;
 	private boolean esElectivaIngenieria;
@@ -20,7 +21,7 @@ public class Curso
 	private int semestre;
    
 	public Curso(String nombre, int creditos, boolean esObligatorio, boolean esElectivaIngenieria, boolean esElectivaProfesional,
-			String CBU, boolean esTipoI, boolean esTipoE, boolean esEpsilon, List<Curso> prerrequisitos, List<Curso> correquisitos, int semestre)
+			String CBU, boolean esTipoI, boolean esTipoE, boolean esEpsilon, int semestre)
 	{
 		this.nombre = nombre;
 		this.creditos = creditos;
