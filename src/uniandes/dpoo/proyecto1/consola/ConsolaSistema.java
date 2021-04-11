@@ -35,12 +35,12 @@ public class ConsolaSistema
 			
 				else if (opcion_seleccionada == 8)
 				{
-					System.out.println("Saliendo de la aplicación ...");
+					System.out.println("Saliendo de la aplicacion");
 					continuar = false;
 				}
 				else if (pensum == null)
 				{
-					System.out.println("Para poder ejecutar esta opción primero debe cargar un archivo de pensum.");
+					System.out.println("Para poder ejecutar esta opcion primero debe cargar un archivo de pensum.");
 				}
 				else
 				{
@@ -116,7 +116,6 @@ public class ConsolaSistema
    			
    		}
        
-       jvygiyiugiyhu
-       hihu
+       
   }
 
