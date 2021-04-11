@@ -1,0 +1,6 @@
+nombre,creditos,esObligatorio,esElectivaIngenieria,esElectivaProfesional,CBU,esTipoI,esTipoE,esEpsilon,prerrequisitos,correquisitos,semestre
+MATE-1203,3,si,no,no,no,no,no,no,no,no,1
+ISIS1221,3,si,no,no,no,no,no,no,no,no,1
+MATE-1214,3,si,no,no,no,no,no,no,[MATE-1203],no,2
+FISI-1018,3,si,no,no,no,no,no,no,no,[MATE-1203, FISI-1019],2
+
