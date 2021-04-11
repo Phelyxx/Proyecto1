@@ -14,17 +14,17 @@ public class Ejecucion
 		{
 			try
 			{
-				InformacionPensum archivo = Loader.cargarArchivo("./data/");
+				InformacionPensum archivo = Loader.cargarArchivo("./data/cursos.csv");
 				System.out.println(archivo.);
 			}
 				catch (FileNotFoundException e)
 				{
-					System.out.println("No se encontro el archivo".);
+					System.out.println("No se encontro el archivo");
 				}
 				catch(IOException ie)
 			{
 		            ie.printStackTrace();
-		            System.out.println("No se pudo leer el archivo.");
+		            System.out.println("No se pudo leer el archivo");
 			}
 		}
 		public static void main(String[] args)
@@ -33,4 +33,4 @@ public class Ejecucion
 			cargar.ejecutarCargarArchivo();
 		}
 	}
-}
+
