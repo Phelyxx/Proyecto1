@@ -1,5 +1,10 @@
 package uniandes.dpoo.proyecto1.modelo;
 
-public class Estudiante {
+import java.util.HashMap;
 
+public class Estudiante {
+	
+	private HashMap<String, String[]> cursosAprobados; 
+	private boolean cantidatoGrado;
+	
 }
