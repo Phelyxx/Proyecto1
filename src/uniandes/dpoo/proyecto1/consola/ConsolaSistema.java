@@ -1,5 +1,7 @@
 package uniandes.dpoo.proyecto1.consola;
 
+import uniandes.dpoo.proyecto1.procesamiento.InformacionPensum;
+
 public class ConsolaSistema
 {
 	
@@ -77,8 +79,12 @@ public class ConsolaSistema
        
        private void ejecutarPlaneacionDeCurso()
        {
+    	   System.out.println("\n" + Loder.+"\n")
+    	   System.out.println("\n" + "por favor ingrese las materias que desea ver"+ "\n" );
     	   
        }
+    	   
+       
        
        
        private void ejecutarGenerarReporteDeNotas()

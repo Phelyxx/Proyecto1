@@ -5,10 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uniandes.dpoo.taller0.modelo.Atleta;
 
 
-public class Estudiante {
+
+public class Estudiante
+{
 	
 	private HashMap<String, List<Curso>> cursosAprobados; 
 	private boolean candidatoGrado;
