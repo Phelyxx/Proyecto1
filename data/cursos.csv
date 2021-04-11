@@ -1,7 +1,0 @@
-nombre,codigo,creditos,esObligatorio,esElectivaIngenieria,esElectivaProfesional,CBU,esTipoI,esTipoE,esEpsilon,prerrequisitos,correquisitos,semanas,nivel,semestre
-Calculo Diferencial,MATE-1203,3,si,no,no,no,no,no,no,no,no,16,1,1
-Introducción al a Programación,ISIS1221,3,si,no,no,no,no,no,no,no,no,16,1,1
-Cálculo Integral,MATE-1214,3,si,no,no,no,no,no,no,[MATE-1203],no,16,1,2
-FÍSICA 1,FISI-1018,3,si,no,no,no,no,no,no,no,[MATE-1203, FISI-1019],16,2,2
-Escritura Universitaria 1, LENG-1511,2,si,no,no,no,no,no,no,no,no,8-1,1,1
-Escritura Universitaria 2,LENG-1512,2,si,no,no,no,no,no,no,[LENG-1511],no,8-2,1,1

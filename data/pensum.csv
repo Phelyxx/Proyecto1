@@ -1,0 +1,74 @@
+nombre,codigo,creditos,esObligatorio,esElectivaIngenieria,esElectivaProfesional,CBU,esTipoI,esTipoE,esEpsilon,prerrequisitos,correquisitos,semanas,nivel,semestre
+Calculo Diferencial,MATE-1203,3,si,no,no,no,no,no,no,no,no,16,1,1
+Introducción al a Programación,ISIS-1221,3,si,no,no,no,no,no,no,no,no,16,1,1
+Introducción a Sistemas, ISIS-1001,3,si,no,no,no,no,no,no,no,no,16,1,1
+Escritura Universitaria 1, LENG-1511=LITE-1621,2,si,no,no,no,no,no,no,no,no,8-1,1,1
+Escritura Universitaria 2,LENG-1512=LITE-1622,2,si,no,no,no,no,no,no,LENG-1511,no,8-2,1,1
+Constitución y Democracia,DERE-1300,3,si,no,no,no,no,no,no,no,no,no,16,1,1
+COL: Espacio-Tiempo-Diferencia,CBCC-1177,2,si,no,no,si,no,no,no,no,no,8,1,1
+Física Experimental 1,FISI-1019,1,si,no,no,no,no,no,no,no,FISI-1018,16,1,2
+Física 1,FISI-1018,3,si,no,no,no,no,no,no,no,MATE-1203+FISI-1019,16,2,2
+Cálculo Integral,MATE-1214,3,si,no,no,no,no,no,no,MATE-1203,no,16,1,2
+Matemática Estructural y Lógica,ISIS-1104,3,si,no,no,no,no,no,no,ISIS-1204=ISIS-1207=ISIS-1221,no,16,1,2
+Estructuras de Datos y Algorítmos,ISIS-1225,3,si,no,no,no,no,no,no,ISIS-1221,no,16,1,2
+Física Experimental 2,FISI-1029,1,si,no,no,no,no,no,no,FISI-1019,FISI-1028,16,1,3
+Física 2,FISI-1028,3,si,no,no,no,no,no,no,FISI-1018+MATE-1203,FISI-1029,16,1,3
+Algebra Lineal 1,MATE-1105,3,si,no,no,no,no,no,no,MATE-1203,no,16,1,3
+Lenguajes y Máquinas,ISIS-1106,3,si,no,no,no,no,no,no,ISIS-1104,ISIS-1205=ISIS-1209=ISIS-1225,LENG-1512=LITE-1622,16,1,3
+Diseño y Programación O.O,ISIS-1226,3,si,no,no,no,no,no,no,ISIS-1225,no,16,1,3
+Requisito Lectura Inglés,LENG-2999,0,si,no,no,no,no,no,no,no,no,no,2,3
+Fundamentos de Infraestructura Tecnológica,ISIS-1304,3,si,no,no,no,no,no,no,ISIS-1205=ISIS-1209=ISIS-1225,no,16,1,3
+Biología Celular TEO ó Química,MBIO-1100=QUIM-1103,3,si,no,no,no,no,no,no,no,no,16,1,4
+Cálculo Vectorial,MATE-1207,3,si,no,no,no,no,no,no,MATE-1105+MATE-1214,no,16,1,4
+Diseño y Análisis de Algoritmos,ISIS-1105,3,si,no,no,no,no,no,no,ISIS-1104=MATE-1102+ISIS1206=ISIS-1226+MATE-1105,no,16,1,4
+Sistemas Transaccionales,ISIS-2304,3,si,no,no,no,no,no,no,ISIS-1206=ISIS-1226,no,16,2,4
+Desarrollo de SW en Equipo,ISIS-2603,3,si,no,no,no,no,no,no,ISIS-1206=ISIS-1226,no,16,2,4
+TI en las Organizaciones,ISIS-1404,3,si,no,no,no,no,si,no,ISIS-1204=ISIS-1207=ISIS-1221,no,16,1,4
+Análisis de Decisión e Inversión,IIND-2401,3,si,no,no,no,no,no,no,MATE-1105+ISIS-1001,no,16,2,5
+
+nombre,codigo,creditos,esObligatorio,esElectivaIngenieria,esElectivaProfesional,CBU,esTipoI,esTipoE,esEpsilon,prerrequisitos,correquisitos,semanas,nivel,semestre
+Probabilidad y Estadística,IIND-2106,3,si,no,no,no,no,no,no,MATE-1105+MATE-1214,no,16,2,5
+Diseño de Productos e Innovación en TI,ISIS-2007,3,si,no,no,no,no,no,no,ISIS-2603+LENG2999,no,16,2,5
+Arquitectura y Diseño de SW,ISIS-2503,3,si,no,no,no,no,no,no,ISIS-2603,no,16,2,5 
+Arquitectura Empresarial,ISIS-2403,3,si,no,no,no,no,no,no,ISIS-1404,no,16,2,5
+Infraestructura computacional,ISIS-2203,3,si,no,no,no,no,no,no,ISIS-1304,no,16,2,5
+Modelado/Simulación y Optimización,ISIS-3302,3,si,no,no,no,no,no,no,ISIS-1206+ISIS-1105+ISIS-1106+IIND-2106,no,16,3,6
+Inteligencia de Negocios,ISIS-3301,3,si,no,no,no,no,no,no,ISIS-2304+ISIS-2403,no,16,3,6
+Sistemas Empresariales,ISIS-3425,3,si,no,no,no,no,no,no,ISIS-2403,no,16,3,6
+Programación con tecnologías web,ISIS-3710,3,si,no,no,no,no,no,no,ISIS-2503,no,16,3,6
+Infraestructura de Comunicaciones,ISIS-3204,3,si,no,no,no,no,no,no,ISIS-2403+ISIS-1304,no,16,3,6
+Construcción de Aplicaciones Móviles,ISIS-3510,3,si,no,no,no,no,no,no,ISIS-2503+ISIS-3204,no,16,3,7
+Proyecto de Grado,ISIS-3007,3,no,no,no,no,no,no,ISIS-2403+ISIS-3204,no,16,3,8
+Requisito de Idiomas,LENG-3999,0,si,no,no,no,no,no,no,no,no,no,3,8
+Arquitectura de Información,ARTI-4202,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Arquitectura de Procesos de Negocio,ARTI-4205,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Estadística en biología computacional,BCOM-4104,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Finanzas y mercadeo estratégico,MBIT-4102,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Emprendimiento y comercio electrónico,MBIT-4201,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Gobierno de TI,MBIT-4202,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Business Analytics,MBIT-4203,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+TI para Sector Público,MBIT-4210,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Talento Humano y Aspectos Legales en TI,MBIT-4213,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Digital Customer Experience,MBIT-4214,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Ingeniería criptográfica y su aplicación en TI,MSIN-4101,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Computación Forense,MSIN-4206,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Análisis de Información sobre Big Data,MINE-4102,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Administración del conocimiento,MINE-4103,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Sistemas de recomendación,MINE-4201,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Análisis con Machine Learning,MINE-4206,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Desarrollo de soluciones cloud,ISIS-4426,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Computación Visual Interactiva,ISIS-4823,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Procesos ágiles de desarrollo de software,MISO-4101,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Fundamentos De Circuitos,IELE-1002,3,no,no,si,no,no,no,no,no,no,16,3,6
+Circuitos e Instrumentacions,IELE-1010,3,no,no,si,no,no,no,no,no,no,16,3,6
+Sistemas Dinámicos,IELE-1502,3,no,no,si,no,no,no,no,no,no,16,3,6
+Materiales Para IEE,IELE-2010,3,no,no,si,no,no,no,no,no,no,16,3,6
+Sistemas Electrónicos Digitales,IELE-2210,3,no,no,si,no,no,no,no,no,no,16,3,6
+Biología celular-Teo,MBIO-1100,3,no,no,no,no,no,no,no,no,no,16,1,6
+Química General,QUIM-1101,3,no,no,no,no,no,no,no,no,no,16,1,6
+Ondas y Fluidos,FISI-1038,3,no,no,no,no,no,no,no,no,no,16,1,6
+Algebra Lineal 2,MATE-1107,3,no,no,no,no,no,no,no,no,no,16,1,6
+Videojuegos Prod.Cultural,CBCA-1137,2,no,no,no,si,no,no,no,no,no,8,1,no
+Las tecnologías digitales,CBCA-1207,2,no,no,no,si,no,no,no,no,no,8,1,no
+Intro al pensamiento computacional,CBPC-1176,2,no,no,no,si,no,no,no,no,no,8,1,no
+Los colombianos,CBCO-1326,2,no,no,no,si,no,no,no,no,no,8,1,no
