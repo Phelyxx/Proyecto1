@@ -14,8 +14,7 @@ public class Ejecucion
 		{
 			try
 			{
-				InformacionPensum archivo = Loader.cargarArchivo("./data/cursos.csv");
-				System.out.println(archivo.);
+				InformacionPensum archivo = Loader.cargarArchivo("./data/pensum.csv");
 			}
 				catch (FileNotFoundException e)
 				{

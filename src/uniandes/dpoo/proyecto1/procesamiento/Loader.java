@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uniandes.dpoo.proyecto1.modelo.Curso;
-import uniandes.dpoo.taller0.modelo.Evento;
 
 public class Loader
 {
-    public static InformacionPensum cargarArchivo(String nombre) throws FileNotFoundException, IOException
+    public static void cargarArchivo(String nombre) throws FileNotFoundException, IOException
     {
     	BufferedReader br = new BufferedReader(new FileReader(nombre));
 		String linea = br.readLine();
@@ -97,9 +96,7 @@ public class Loader
 			String semanas = partes[11];
 			int semestre = Integer.parseInt(partes[12]);
 			
-			List<Curso> cursos = new ArrayList<>();
-			cursos.add(nombreCurso);
-			
+			List<Curso> cursos = new ArrayList<>();		
 			linea = br.readLine(); 
 		}  
 		br.close();

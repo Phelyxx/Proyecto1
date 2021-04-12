@@ -36,4 +36,8 @@ public class Curso
 		this.correquisitos = new ArrayList<>();
 		this.semestre = semestre;
 	}
+	public List<Curso> darPrerrequisitos()
+	{
+		return prerrequisitos;
+	}
 }
