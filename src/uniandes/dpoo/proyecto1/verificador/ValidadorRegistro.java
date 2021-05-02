@@ -1,16 +1,16 @@
-package uniandes.dpoo.proyecto2.verificador;
+package uniandes.dpoo.proyecto1.verificador;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uniandes.dpoo.proyecto2.core.estudiante.CursoInscrito;
-import uniandes.dpoo.proyecto2.core.estudiante.Estudiante;
-import uniandes.dpoo.proyecto2.core.pensum.Correquisito;
-import uniandes.dpoo.proyecto2.core.pensum.Curso;
-import uniandes.dpoo.proyecto2.core.pensum.Pensum;
-import uniandes.dpoo.proyecto2.core.pensum.Prerrequisito;
+import uniandes.dpoo.proyecto1.core.estudiante.CursoInscrito;
+import uniandes.dpoo.proyecto1.core.estudiante.Estudiante;
+import uniandes.dpoo.proyecto1.core.pensum.Correquisito;
+import uniandes.dpoo.proyecto1.core.pensum.Curso;
+import uniandes.dpoo.proyecto1.core.pensum.Pensum;
+import uniandes.dpoo.proyecto1.core.pensum.Prerrequisito;
 
 public class ValidadorRegistro
 {

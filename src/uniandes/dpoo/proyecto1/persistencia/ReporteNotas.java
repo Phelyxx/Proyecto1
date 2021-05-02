@@ -1,4 +1,4 @@
-package uniandes.dpoo.proyecto2.persistencia;
+package uniandes.dpoo.proyecto1.persistencia;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import uniandes.dpoo.proyecto2.core.pensum.Curso;
-import uniandes.dpoo.proyecto2.core.pensum.LoaderPensum;
+import uniandes.dpoo.proyecto1.core.pensum.Curso;
+import uniandes.dpoo.proyecto1.core.pensum.LoaderPensum;
 
 public class ReporteNotas
 {

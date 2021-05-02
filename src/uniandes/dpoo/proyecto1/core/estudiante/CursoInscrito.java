@@ -1,10 +1,10 @@
-package uniandes.dpoo.proyecto2.core.estudiante;
+package uniandes.dpoo.proyecto1.core.estudiante;
 
 import java.util.List;
 
-import uniandes.dpoo.proyecto2.core.pensum.Correquisito;
-import uniandes.dpoo.proyecto2.core.pensum.Curso;
-import uniandes.dpoo.proyecto2.core.pensum.Prerrequisito;
+import uniandes.dpoo.proyecto1.core.pensum.Correquisito;
+import uniandes.dpoo.proyecto1.core.pensum.Curso;
+import uniandes.dpoo.proyecto1.core.pensum.Prerrequisito;
 
 public class CursoInscrito extends Curso
 {

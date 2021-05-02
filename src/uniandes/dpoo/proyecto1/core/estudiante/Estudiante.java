@@ -1,4 +1,4 @@
-package uniandes.dpoo.proyecto2.core.estudiante;
+package uniandes.dpoo.proyecto1.core.estudiante;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import uniandes.dpoo.proyecto2.core.pensum.Curso;
-import uniandes.dpoo.proyecto2.core.pensum.LoaderPensum;
-import uniandes.dpoo.proyecto2.core.pensum.Pensum;
-import uniandes.dpoo.proyecto2.verificador.ValidadorInscripcion;
-import uniandes.dpoo.proyecto2.verificador.ValidadorRegistro;
+import uniandes.dpoo.proyecto1.core.pensum.Curso;
+import uniandes.dpoo.proyecto1.core.pensum.LoaderPensum;
+import uniandes.dpoo.proyecto1.core.pensum.Pensum;
+import uniandes.dpoo.proyecto1.verificador.ValidadorInscripcion;
+import uniandes.dpoo.proyecto1.verificador.ValidadorRegistro;
 
 
 
