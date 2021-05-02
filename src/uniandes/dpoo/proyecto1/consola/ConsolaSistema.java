@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import uniandes.dpoo.proyecto1.procesamiento.InformacionPensum;
 
 public class ConsolaSistema
@@ -34,7 +38,7 @@ public class ConsolaSistema
 				else if (opcion_seleccionada == 4 && pensum != null)
 					ejecutarGenerarReporteDeNotas();
 				else if (opcion_seleccionada == 5 && pensum != null)
-					ejecutarCandidatoAGrado;
+					ejecutarCandidatoAGrado();
 				else if (opcion_seleccionada == 6 && pensum != null)
 					ejecutarCompletarNotasCoordinador();
 				else if (opcion_seleccionada == 7 && pensum != null)
@@ -62,9 +66,35 @@ public class ConsolaSistema
 	}
   
   
-       public void mostrarMenu()
+       private void ejecutarRegistrarCursoYRequisitos()
+{
+	// TODO Auto-generated method stub
+	
+}
+
+
+	public String input(String mensaje)
 	{
-		System.out.println("\nOpciones de la aplicación\n");
+		try
+		{
+			System.out.print(mensaje + ": ");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			return reader.readLine();
+		}
+		catch (IOException e)
+		{
+			System.out.println("Error leyendo de la consola");
+			e.printStackTrace();
+		}
+		return null;
+	}
+{
+}
+
+
+	public void mostrarMenu()
+	{
+		System.out.println("\nOpciones de la aplicaci�n");
 		System.out.println("1. Cargar un archivo de pensum");
 		System.out.println("2. Registrar cursos y requisitos del estudiante");
 		System.out.println("3. Planear los cursos que se van a ver en los siguientes semestres");
@@ -72,7 +102,7 @@ public class ConsolaSistema
 		System.out.println("5. Verificar si un estudiantes es candidato a grado");
 		System.out.println("6. Completar a mano las notas de un estudiante(coordinador)");
 		System.out.println("7. Seleccionar estudiante para hacer planeacion, reporte, etc...");
-		System.out.println("8. Salir de la aplicación\n");
+		System.out.println("8. Salir de la aplicaci�n\n");
 	}
 	
        
@@ -84,7 +114,7 @@ public class ConsolaSistema
        
        private void ejecutarPlaneacionDeCurso()
        {
-    	   System.out.println("\n" + Loder.+"\n")
+    	   //System.out.println("\n" + Loder.+"\n")
     	   System.out.println("\n" + "por favor ingrese las materias que desea ver"+ "\n" );
     	   
        }
@@ -120,13 +150,13 @@ public class ConsolaSistema
        private void ejecutarCargarPensum()
    	{
    		System.out.println("\n" + "Cargar un archivo de pensum" + "\n");
-
-   		String archivo = input("Por favor ingrese el nombre del archivo CSV con el pensum deseado");
-   		try
-   		{
-   			
+   		
    		}
-       
+   		public static void main(String[] args)
+   		{
+   			ConsolaSistema consola = new ConsolaSistema();
+   			consola.ejecutarAplicacion();
+   		}
        
   }
 */

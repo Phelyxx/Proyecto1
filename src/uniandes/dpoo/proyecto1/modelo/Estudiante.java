@@ -22,6 +22,10 @@ public class Estudiante
 		this.candidatoGrado = candidatoGrado;
 		this.tieneSegundaLengua = tieneSegundaLengua;
 	}
+	public HashMap<String, List<Curso>> darCursosAprobados()
+	{
+		return cursosAprobados;
+	}
 	public Map<String, List<Curso>> agregarCurso(String numSemestre, Curso curso) 
 	{
 		List<Curso> lista = cursosAprobados.get(numSemestre);

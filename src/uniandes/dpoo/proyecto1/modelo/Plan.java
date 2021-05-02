@@ -5,8 +5,4 @@ public class Plan {
 	private String[] cursos;
 	private Estudiante estudiante;
 	
-	public planearCurso()
-	{
-		
-	}
 }

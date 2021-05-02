@@ -8,11 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uniandes.dpoo.proyecto1.modelo.Curso;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 211d6b624ea96e23a334a9edfa76ed5e573511df
 
 public class Loader
 {
-    public static InformacionPensum cargarArchivo(String nombre) throws FileNotFoundException, IOException
     {
     	BufferedReader br = new BufferedReader(new FileReader(nombre));
 		String linea = br.readLine();
@@ -91,10 +93,14 @@ public class Loader
 			String semanas = partes[12];
 			int semestre = Integer.parseInt(partes[13]);
 			
+<<<<<<< HEAD
 			List<Curso> cursos = new ArrayList<>();
 			curso = new Curso(nombreCurso,codigo,creditos,esObligatorio,esElectivaIngenieria,esElectivaProfesional,CBU,esTipoI,esTipoE,esEpsilon,preRrequisitos,correquisitos);
 			cursos.add(curso);
 			
+=======
+			List<Curso> cursos = new ArrayList<>();		
+>>>>>>> 211d6b624ea96e23a334a9edfa76ed5e573511df
 			linea = br.readLine(); 
 		}  
 		br.close();

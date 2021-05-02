@@ -25,8 +25,6 @@ Sistemas Transaccionales,ISIS-2304,3,si,no,no,no,no,no,no,ISIS-1206=ISIS-1226,no
 Desarrollo de SW en Equipo,ISIS-2603,3,si,no,no,no,no,no,no,ISIS-1206=ISIS-1226,no,16,2,4
 TI en las Organizaciones,ISIS-1404,3,si,no,no,no,no,si,no,ISIS-1204=ISIS-1207=ISIS-1221,no,16,1,4
 Análisis de Decisión e Inversión,IIND-2401,3,si,no,no,no,no,no,no,MATE-1105+ISIS-1001,no,16,2,5
-
-nombre,codigo,creditos,esObligatorio,esElectivaIngenieria,esElectivaProfesional,CBU,esTipoI,esTipoE,esEpsilon,prerrequisitos,correquisitos,semanas,nivel,semestre
 Probabilidad y Estadística,IIND-2106,3,si,no,no,no,no,no,no,MATE-1105+MATE-1214,no,16,2,5
 Diseño de Productos e Innovación en TI,ISIS-2007,3,si,no,no,no,no,no,no,ISIS-2603+LENG2999,no,16,2,5
 Arquitectura y Diseño de SW,ISIS-2503,3,si,no,no,no,no,no,no,ISIS-2603,no,16,2,5 
