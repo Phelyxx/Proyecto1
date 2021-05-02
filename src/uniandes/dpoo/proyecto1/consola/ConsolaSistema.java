@@ -1,4 +1,9 @@
 package uniandes.dpoo.proyecto1.consola;
+/**
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import uniandes.dpoo.proyecto1.procesamiento.InformacionPensum;
 
@@ -124,4 +129,4 @@ public class ConsolaSistema
        
        
   }
-
+*/
