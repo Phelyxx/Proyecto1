@@ -25,6 +25,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
     private JButton VerAvancesDeCarrera;
     private JButton VerPromedioGeneral;
     private JButton GenerarReporteDeNotas;
+    private JButton cargar;
     private PanelCentro centro;
     private JTextField titulo;
   //abajo
@@ -59,6 +60,8 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		VerAvancesDeCarrera = new JButton("Ver Avances De Carrera");
 		VerPromedioGeneral = new JButton("Ver Promedio General");
 		GenerarReporteDeNotas = new JButton("Generar Reporte De Notas");
+		cargar = new JButton("Cargar Pensum");
+		
 		
 		
 		RegistrarCursos.addActionListener(this);
@@ -68,6 +71,8 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		VerAvancesDeCarrera.addActionListener(this);
 		VerPromedioGeneral.addActionListener(this);
 		GenerarReporteDeNotas.addActionListener(this);
+		cargar.addActionListener(this);
+		
 		
 		
 		RegistrarCursos.setActionCommand("R");
@@ -77,6 +82,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		VerAvancesDeCarrera.setActionCommand("VA");
 		VerPromedioGeneral.setActionCommand("VP");
 		GenerarReporteDeNotas.setActionCommand("G");
+		cargar.setActionCommand("C");
 		
 		btnReiniciar = new JButton ("VOLVER");
 		btnReiniciar.addActionListener(this);
@@ -89,6 +95,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		centro.add(VerAvancesDeCarrera,BorderLayout.CENTER);
 		centro.add(VerPromedioGeneral,BorderLayout.CENTER);
 		centro.add(GenerarReporteDeNotas,BorderLayout.CENTER);
+		centro.add(cargar,BorderLayout.CENTER);
 		
 		titulo = new JTextField("Menu Del Estudiante",2);
 		titulo.setEditable(false);
@@ -158,6 +165,12 @@ public void actionPerformed(ActionEvent e)
 	else if (comando.equals("V"))
 	{
 		PanelVentanaPrincipal menu = new PanelVentanaPrincipal();
+		menu.setVisible(true);
+		this.dispose();
+	}
+	else if (comando.equals("C"))
+	{
+        CargarPensum menu = new CargarPensum();
 		menu.setVisible(true);
 		this.dispose();
 	}
