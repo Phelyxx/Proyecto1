@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-public class Estudiante extends JFrame implements ActionListener
+public class EstudiantePanel extends JFrame implements ActionListener
 {
 
 private static final long serialVersionUID = 7L;
@@ -28,7 +28,7 @@ private static final long serialVersionUID = 7L;
 	 private JButton avancePensum;
 	
 	
-	public Estudiante()
+	public EstudiantePanel()
 	{
 		    setSize(900,700);
 			setTitle("Mi Banner");
@@ -83,7 +83,7 @@ private static final long serialVersionUID = 7L;
 	 public static void main(String[] args)
 		{
 			
-	      Estudiante ventana = new  Estudiante();
+	      EstudiantePanel ventana = new  EstudiantePanel();
 			ventana.setVisible(true);
 			
 		}

@@ -1,4 +1,4 @@
-package uniandes.dpoo.proyecto2.persistencia;
+package uniandes.dpoo.proyecto1.persistencia;
 
 public class LoaderCursos
 {

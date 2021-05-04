@@ -202,7 +202,7 @@ private static final long serialVersionUID = 7L;
 		// TODO Auto-generated method stub
 		if(comando.equals("V"))
 		{
-			Estudiante menu = new Estudiante();
+			EstudiantePanel menu = new EstudiantePanel();
 			menu.setVisible(true);
 			this.dispose();
 		} 

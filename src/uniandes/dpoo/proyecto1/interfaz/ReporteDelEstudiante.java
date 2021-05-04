@@ -122,28 +122,28 @@ private static final long serialVersionUID = 7L;
 		else if(comando.equals("1"))
 		{
 			JOptionPane.showInputDialog(null,"Ingrese nombre del estudiante:  ");
-			Estudiante menu = new Estudiante();
+			EstudiantePanel menu = new EstudiantePanel();
 			menu.setVisible(true);
 			this.dispose();
 		}
 		else if(comando.equals("2"))
 		{
 			JOptionPane.showInputDialog(null,"Ingrese nombre del estudiante:  ");
-			Estudiante menu = new Estudiante();
+			EstudiantePanel menu = new EstudiantePanel();
 			menu.setVisible(true);
 			this.dispose();
 		}
 		else if(comando.equals("3"))
 		{
 			JOptionPane.showInputDialog(null,"Ingrese nombre del estudiante:  ");
-			Estudiante menu = new Estudiante();
+			EstudiantePanel menu = new EstudiantePanel();
 			menu.setVisible(true);
 			this.dispose();
 		}
 		else if(comando.equals("4"))
 		{
 			JOptionPane.showInputDialog(null,"Ingrese nombre del estudiante:  ");
-			Estudiante menu = new Estudiante();
+			EstudiantePanel menu = new EstudiantePanel();
 			menu.setVisible(true);
 			this.dispose();
 		}

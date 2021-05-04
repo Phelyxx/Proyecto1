@@ -5,11 +5,19 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import uniandes.dpoo.proyecto1.core.estudiante.Estudiante;
+import uniandes.dpoo.proyecto1.core.pensum.Curso;
+import uniandes.dpoo.proyecto1.core.pensum.Pensum;
 
 public class MenuDelEstudiante extends JFrame implements ActionListener
 {
@@ -31,6 +39,8 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
   //abajo
   	private PanelAbajo abajo;
   	private JButton btnReiniciar;
+  	private Pensum pensum;
+  	private Estudiante estudiante;
   
   public MenuDelEstudiante()
   {
@@ -52,7 +62,6 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		add(abajo, BorderLayout.SOUTH);
 		abajo.setBackground(new Color (255,255,200));
 		
-		
 		RegistrarCursos = new JButton("Registrar Cursos Vistos");
 		VerCursosVistos = new JButton("Ver Cursos Vistos");
 		PlanearMaterias = new JButton("Planear Materias");
@@ -72,8 +81,9 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		VerPromedioGeneral.addActionListener(this);
 		GenerarReporteDeNotas.addActionListener(this);
 		cargar.addActionListener(this);
-		
-		
+		Map<String, List<Curso>> cursosAprobados = new HashMap<String, List<Curso>>();
+		Map<String, List<Curso>> cursosPlaneados = new HashMap<String, List<Curso>>();
+		estudiante = new Estudiante(cursosAprobados, cursosPlaneados, false, false);
 		
 		RegistrarCursos.setActionCommand("R");
 		VerCursosVistos.setActionCommand("VCV");
@@ -126,12 +136,17 @@ public void actionPerformed(ActionEvent e)
 	{
 		RegistroDeCursos menu = new RegistroDeCursos();
 		menu.setVisible(true);
+		menu.setPensum(pensum);
+		menu.setEstudiante(estudiante);
 		this.dispose();
 	} 
 	else if (comando.equals("VCV"))
 	{
-		CursosVistos menu = new CursosVistos();
+		CursosVistos menu = new CursosVistos(estudiante);
 		menu.setVisible(true);
+		System.out.println(estudiante.darCursosAprobados());
+		menu.setEstudiante(estudiante);
+		menu.setPensum(pensum);
 		this.dispose();
 	}	
 	else if (comando.equals("P"))
@@ -175,4 +190,12 @@ public void actionPerformed(ActionEvent e)
 		this.dispose();
 	}
  }
+	public void setPensum(Pensum pensum)
+	{	
+		this.pensum = pensum;
+	}
+	public void setEstudiante(Estudiante estudiante)
+	{
+		this.estudiante = estudiante;
+	}
 }

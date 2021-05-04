@@ -1,8 +1,8 @@
 nombre,codigo,creditos,esObligatorio,esElectivaIngenieria,esElectivaProfesional,CBU,esTipoI,esTipoE,esEpsilon,prerrequisitos,correquisitos,semanas,nivel,semestre
 Calculo Diferencial,MATE-1203,3,si,no,no,no,no,no,no,no,no,16,1,1
 Introducción al a Programación,ISIS-1221,3,si,no,no,no,no,no,no,no,no,16,1,1
-Introducción a Sistemas, ISIS-1001,3,si,no,no,no,no,no,no,no,no,16,1,1
-Escritura Universitaria 1, LENG-1511=LITE-1621,2,si,no,no,no,no,no,no,no,no,8-1,1,1
+Introducción a Sistemas,ISIS-1001,3,si,no,no,no,no,no,no,no,no,16,1,1
+Escritura Universitaria 1,LENG-1511=LITE-1621,2,si,no,no,no,no,no,no,no,no,8-1,1,1
 Escritura Universitaria 2,LENG-1512=LITE-1622,2,si,no,no,no,no,no,no,LENG-1511,no,8-2,1,1
 Constitución y Democracia,DERE-1300,3,si,no,no,no,no,no,no,no,no,no,16,1,1
 COL: Espacio-Tiempo-Diferencia,CBCC-1177,2,si,no,no,si,no,no,no,no,no,8,1,1
@@ -27,7 +27,7 @@ TI en las Organizaciones,ISIS-1404,3,si,no,no,no,no,si,no,ISIS-1204=ISIS-1207=IS
 Análisis de Decisión e Inversión,IIND-2401,3,si,no,no,no,no,no,no,MATE-1105+ISIS-1001,no,16,2,5
 Probabilidad y Estadística,IIND-2106,3,si,no,no,no,no,no,no,MATE-1105+MATE-1214,no,16,2,5
 Diseño de Productos e Innovación en TI,ISIS-2007,3,si,no,no,no,no,no,no,ISIS-2603+LENG2999,no,16,2,5
-Arquitectura y Diseño de SW,ISIS-2503,3,si,no,no,no,no,no,no,ISIS-2603,no,16,2,5 
+Arquitectura y Diseño de SW,ISIS-2503,3,si,no,no,no,no,no,no,ISIS-2603,no,16,2,5
 Arquitectura Empresarial,ISIS-2403,3,si,no,no,no,no,no,no,ISIS-1404,no,16,2,5
 Infraestructura computacional,ISIS-2203,3,si,no,no,no,no,no,no,ISIS-1304,no,16,2,5
 Modelado/Simulación y Optimización,ISIS-3302,3,si,no,no,no,no,no,no,ISIS-1206+ISIS-1105+ISIS-1106+IIND-2106,no,16,3,6
@@ -36,27 +36,27 @@ Sistemas Empresariales,ISIS-3425,3,si,no,no,no,no,no,no,ISIS-2403,no,16,3,6
 Programación con tecnologías web,ISIS-3710,3,si,no,no,no,no,no,no,ISIS-2503,no,16,3,6
 Infraestructura de Comunicaciones,ISIS-3204,3,si,no,no,no,no,no,no,ISIS-2403+ISIS-1304,no,16,3,6
 Construcción de Aplicaciones Móviles,ISIS-3510,3,si,no,no,no,no,no,no,ISIS-2503+ISIS-3204,no,16,3,7
-Proyecto de Grado,ISIS-3007,3,no,no,no,no,no,no,ISIS-2403+ISIS-3204,no,16,3,8
-Requisito de Idiomas,LENG-3999,0,si,no,no,no,no,no,no,no,no,no,3,8
-Arquitectura de Información,ARTI-4202,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Arquitectura de Procesos de Negocio,ARTI-4205,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Estadística en biología computacional,BCOM-4104,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Finanzas y mercadeo estratégico,MBIT-4102,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Emprendimiento y comercio electrónico,MBIT-4201,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Gobierno de TI,MBIT-4202,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Business Analytics,MBIT-4203,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-TI para Sector Público,MBIT-4210,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Talento Humano y Aspectos Legales en TI,MBIT-4213,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Digital Customer Experience,MBIT-4214,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Ingeniería criptográfica y su aplicación en TI,MSIN-4101,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Computación Forense,MSIN-4206,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Análisis de Información sobre Big Data,MINE-4102,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Administración del conocimiento,MINE-4103,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Sistemas de recomendación,MINE-4201,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Análisis con Machine Learning,MINE-4206,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Desarrollo de soluciones cloud,ISIS-4426,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Computación Visual Interactiva,ISIS-4823,4,no,no,si,no,no,no,no,no,no,16,4,7-8
-Procesos ágiles de desarrollo de software,MISO-4101,4,no,no,si,no,no,no,no,no,no,16,4,7-8
+Proyecto de Grado,ISIS-3007,3,si,no,no,no,no,no,no,ISIS-2403+ISIS-3204,no,16,3,8
+Requisito de Idiomas,LENG-3999,0,si,no,no,no,no,no,no,no,no,16,3,8
+Arquitectura de Información,ARTI-4202,4,no,no,si,no,no,no,no,no,no,16,4,78
+Arquitectura de Procesos de Negocio,ARTI-4205,4,no,no,si,no,no,no,no,no,no,16,4,78
+Estadística en biología computacional,BCOM-4104,4,no,no,si,no,no,no,no,no,no,16,4,78
+Finanzas y mercadeo estratégico,MBIT-4102,4,no,no,si,no,no,no,no,no,no,16,4,78
+Emprendimiento y comercio electrónico,MBIT-4201,4,no,no,si,no,no,no,no,no,no,16,4,78
+Gobierno de TI,MBIT-4202,4,no,no,si,no,no,no,no,no,no,16,4,78
+Business Analytics,MBIT-4203,4,no,no,si,no,no,no,no,no,no,16,4,78
+TI para Sector Público,MBIT-4210,4,no,no,si,no,no,no,no,no,no,16,4,78
+Talento Humano y Aspectos Legales en TI,MBIT-4213,4,no,no,si,no,no,no,no,no,no,16,4,78
+Digital Customer Experience,MBIT-4214,4,no,no,si,no,no,no,no,no,no,16,4,78
+Ingeniería criptográfica y su aplicación en TI,MSIN-4101,4,no,no,si,no,no,no,no,no,no,16,4,78
+Computación Forense,MSIN-4206,4,no,no,si,no,no,no,no,no,no,16,4,78
+Análisis de Información sobre Big Data,MINE-4102,4,no,no,si,no,no,no,no,no,no,16,4,78
+Administración del conocimiento,MINE-4103,4,no,no,si,no,no,no,no,no,no,16,4,78
+Sistemas de recomendación,MINE-4201,4,no,no,si,no,no,no,no,no,no,16,4,78
+Análisis con Machine Learning,MINE-4206,4,no,no,si,no,no,no,no,no,no,16,4,78
+Desarrollo de soluciones cloud,ISIS-4426,4,no,no,si,no,no,no,no,no,no,16,4,78
+Computación Visual Interactiva,ISIS-4823,4,no,no,si,no,no,no,no,no,no,16,4,78
+Procesos ágiles de desarrollo de software,MISO-4101,4,no,no,si,no,no,no,no,no,no,16,4,78
 Fundamentos De Circuitos,IELE-1002,3,no,no,si,no,no,no,no,no,no,16,3,6
 Circuitos e Instrumentacions,IELE-1010,3,no,no,si,no,no,no,no,no,no,16,3,6
 Sistemas Dinámicos,IELE-1502,3,no,no,si,no,no,no,no,no,no,16,3,6
@@ -66,7 +66,7 @@ Biología celular-Teo,MBIO-1100,3,no,no,no,no,no,no,no,no,no,16,1,6
 Química General,QUIM-1101,3,no,no,no,no,no,no,no,no,no,16,1,6
 Ondas y Fluidos,FISI-1038,3,no,no,no,no,no,no,no,no,no,16,1,6
 Algebra Lineal 2,MATE-1107,3,no,no,no,no,no,no,no,no,no,16,1,6
-Videojuegos Prod.Cultural,CBCA-1137,2,no,no,no,si,no,no,no,no,no,8,1,no
-Las tecnologías digitales,CBCA-1207,2,no,no,no,si,no,no,no,no,no,8,1,no
-Intro al pensamiento computacional,CBPC-1176,2,no,no,no,si,no,no,no,no,no,8,1,no
-Los colombianos,CBCO-1326,2,no,no,no,si,no,no,no,no,no,8,1,no
+Videojuegos Prod.Cultural,CBCA-1137,2,no,no,no,si,no,no,no,no,no,8,1,0
+Las tecnologías digitales,CBCA-1207,2,no,no,no,si,no,no,no,no,no,8,1,0
+Intro al pensamiento computacional,CBPC-1176,2,no,no,no,si,no,no,no,no,no,8,1,0
+Los colombianos,CBCO-1326,2,no,no,no,si,no,no,no,no,no,8,1,0

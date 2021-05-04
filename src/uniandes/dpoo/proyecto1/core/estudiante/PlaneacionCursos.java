@@ -1,4 +1,4 @@
-package uniandes.dpoo.proyecto2.core.estudiante;
+package uniandes.dpoo.proyecto1.core.estudiante;
 
 public class PlaneacionCursos
 {

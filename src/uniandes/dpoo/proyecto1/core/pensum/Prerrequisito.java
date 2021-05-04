@@ -1,4 +1,4 @@
-package uniandes.dpoo.proyecto2.core.pensum;
+package uniandes.dpoo.proyecto1.core.pensum;
 
 import java.util.List;
 

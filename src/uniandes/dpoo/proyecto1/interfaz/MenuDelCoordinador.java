@@ -4,9 +4,16 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import uniandes.dpoo.proyecto1.core.pensum.LoaderPensum;
+import uniandes.dpoo.proyecto1.core.pensum.Pensum;
 
 public class MenuDelCoordinador extends JFrame implements ActionListener
 {
@@ -19,7 +26,8 @@ public class MenuDelCoordinador extends JFrame implements ActionListener
 		private PanelAbajo abajo;
 		private JButton btnReiniciar;
         private JButton btnCargarMaterias;
-        private JTextField titulo;  
+        private JTextField titulo;
+		private JButton btnCargarPensum;  
   
   
   public MenuDelCoordinador()
@@ -44,6 +52,10 @@ public class MenuDelCoordinador extends JFrame implements ActionListener
 		btnCargarMaterias.addActionListener(this);
 		btnCargarMaterias.setActionCommand("C");
 		
+		btnCargarPensum = new JButton("Cargar Pensum");
+		btnCargarPensum.addActionListener(this);
+		btnCargarPensum.setActionCommand("P");
+		
 		
 		abajo = new PanelAbajo();
 		add(abajo, BorderLayout.SOUTH);
@@ -59,6 +71,7 @@ public class MenuDelCoordinador extends JFrame implements ActionListener
 		titulo.setBackground(new Color (255,255,230));
 		
 		centro.add(btnCargarMaterias,BorderLayout.CENTER);
+		centro.add(btnCargarPensum,BorderLayout.CENTER);
 	    add(imagenArriba, BorderLayout.NORTH);
 	    abajo.add(btnReiniciar, BorderLayout.CENTER);
 	    imagenArriba.add(titulo, BorderLayout.NORTH);
@@ -90,6 +103,25 @@ public void actionPerformed(ActionEvent e)
 		menu.setVisible(true);
 		this.dispose();
 	}
-	
+	else if(comando.equals("P"))
+	{
+		String nombre=JOptionPane.showInputDialog(null,"Ingrese nombre del archivo tipo pensum:  ");
+		try
+		{
+			Pensum archivo = LoaderPensum.cargarArchivo("./data/" + nombre);
+			JOptionPane.showMessageDialog( this, "Se cargó el archivo "  + "./data/" + nombre + " con la información del Pensum", "Archivo cargado", JOptionPane.DEFAULT_OPTION );
+		}
+		catch (FileNotFoundException d)
+		{
+			JOptionPane.showMessageDialog( this, "El archivo indicado no se encontró.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+		}
+		catch (IOException d)
+		{
+			System.out.println(d.getMessage());
+			JOptionPane.showMessageDialog( this, "Hubo un problema leyendo el archivo.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+			
+		}
+		System.out.println(nombre);
+	}
   }
 }

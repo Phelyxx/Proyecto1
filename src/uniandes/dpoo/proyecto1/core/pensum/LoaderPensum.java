@@ -1,4 +1,4 @@
-package uniandes.dpoo.proyecto2.core.pensum;
+package uniandes.dpoo.proyecto1.core.pensum;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -39,27 +39,27 @@ public class LoaderPensum
 			{
 				esObligatorio = true;
 			}
-			else if(partes[4].equals("si"))
+			if(partes[4].equals("si"))
 			{
 				esElectivaIngenieria = true;
 			}
-			else if(partes[5].equals("si"))
+			if(partes[5].equals("si"))
 			{
 				esElectivaProfesional = true;
 			}
-			else if(partes[6].equals("si"))
+			if(partes[6].equals("si"))
 			{
 				esCBU = true;
 			}
-			else if(partes[7].equals("si"))
+			if(partes[7].equals("si"))
 			{
 				esTipoI = true;
 			}
-			else if(partes[8].equals("si"))
+			if(partes[8].equals("si"))
 			{
 				esTipoE = true;
 			}
-			else if(partes[9].equals("si"))
+			if(partes[9].equals("si"))
 			{
 				esEpsilon = true;
 			}	
@@ -67,10 +67,10 @@ public class LoaderPensum
 			List<Correquisito> correquisitos = new ArrayList<>();
 			String semanas =partes[12];
 			int nivel = Integer.parseInt(partes[13]);
-			int semestre = Integer.parseInt(partes[14]);
+			int semestre = Integer.parseInt(partes[14].replaceAll(" ", ""));
 			Curso elCurso = new Curso(nombreCurso, codigoCurso, creditos, esObligatorio, esElectivaIngenieria, 
 					esElectivaProfesional, esCBU, esTipoI, esTipoE, esEpsilon, prerrequisitos, 
-					correquisitos, semanas, nivel, semestre);
+					correquisitos, semanas, nivel, semestre, "0");
 			cursos.add(elCurso);
 
 			linea = br.readLine(); // Leer la siguiente línea

@@ -28,7 +28,7 @@ public class ValidadorRegistro
 				boolean validarCorreq = validarCorrequisitos();
 				boolean validarNivel = validarNivel();
 				boolean validarRestriccionesPensum = validarRestriccionesPensum();
-				boolean validarSemanas = validarRestriccionesPensum();
+				boolean validarSemanas = validarSemanas();
 				if((validarPrerreq && validarCorreq && validarNivel && validarRestriccionesPensum && validarSemanas) == true)
 				{
 					return true;
@@ -40,26 +40,26 @@ public class ValidadorRegistro
 	}
 	public static boolean validarPrerrequisitos()
 	{
-		return false;
+		return true;
 
 	}
 	public static boolean validarCorrequisitos()
 	{
-		return false;
+		return true;
 
 	}	
 	public static boolean validarNivel()
 	{
-		return false;
+		return true;
 
 	}		
 	public static boolean validarRestriccionesPensum()
 	{
-		return false;
+		return true;
 
 	}	
-	public static void validarOchoSemanas()
+	public static boolean validarSemanas()
 	{
-
+		return true;
 	}			
 }

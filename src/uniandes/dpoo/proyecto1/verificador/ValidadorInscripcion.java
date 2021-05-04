@@ -1,4 +1,4 @@
-package uniandes.dpoo.proyecto2.verificador;
+package uniandes.dpoo.proyecto1.verificador;
 
 public class ValidadorInscripcion
 {

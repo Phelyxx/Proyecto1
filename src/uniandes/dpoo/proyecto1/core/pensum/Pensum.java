@@ -1,4 +1,4 @@
-package uniandes.dpoo.proyecto2.core.pensum;
+package uniandes.dpoo.proyecto1.core.pensum;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -40,17 +40,16 @@ public class Pensum
 		return null;
 	}
 	
-	private void ejecutarCargarPensum()
+	private Pensum ejecutarCargarPensum()
 	{
 		System.out.println("\n" + "Cargar un archivo de atletas" + "\n");
 
 		String archivo = "./data/pensum.csv";
 		try
 		{
-			Pensum Pensum = LoaderPensum.cargarArchivo(archivo);
+			Pensum pensum = LoaderPensum.cargarArchivo(archivo);
 			System.out.println("Se cargó el archivo " + archivo + " con información de los Juegos Olímpicos.");
-			//cursos = consultarCursos(Pensum);
-			//System.out.println(cursos);
+			return pensum;
 		}
 		catch (FileNotFoundException e)
 		{
@@ -61,6 +60,7 @@ public class Pensum
 			System.out.println("ERROR: hubo un problema leyendo el archivo.");
 			System.out.println(e.getMessage());
 		}
+		return null;
 	}		
 	public static void main(String[] args)
 	{

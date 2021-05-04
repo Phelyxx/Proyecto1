@@ -22,11 +22,11 @@ public class Curso
 	private List<Correquisito> correquisitos;
 	private String semanas;
 	private int nivel;
-	private String semestre;
+	private int semestre;
    
 	public Curso(String nombre, String codigo, int creditos, boolean esObligatorio, boolean esElectivaIngenieria, boolean esElectivaProfesional,
 			boolean esCBU, boolean esTipoI, boolean esTipoE, boolean esEpsilon,  List<Prerrequisito> prerrequisitos,
-			List<Correquisito> correquisitos, String semanas, int nivel, String semestre, String nota )
+			List<Correquisito> correquisitos, String semanas, int nivel, int semestre, String nota )
 	{
 		this.nombre = nombre;
 		this.codigo = codigo;
@@ -67,6 +67,10 @@ public class Curso
 	{
 		return nota;
 	}
+	public int darSemestre()
+	{
+		return semestre;
+	}
 	public int darCreditos()
 	{
 		return creditos;
@@ -79,11 +83,19 @@ public class Curso
 	{
 		return esCBU;
 	}
-	public boolean darEsElectivaProfesional()
+	public boolean esTipoE()
+	{
+		return esTipoE;
+	}
+	public boolean esEpsilon()
+	{
+		return esEpsilon;
+	}
+	public boolean EsElectivaProfesional()
 	{
 		return esElectivaProfesional;
 	}
-	public boolean daresTipoI()
+	public boolean esTipoI()
 	{
 		return esTipoI;
 	}
@@ -94,7 +106,14 @@ public class Curso
 	public void setPrerrequisitos(List<Prerrequisito> prerrequisitos)
 	{
 		this.prerrequisitos = prerrequisitos;
-		
+	}
+	public void setSemestre(int semestre)
+	{
+		this.semestre = semestre;
+	}
+	public void setNota(String nota)
+	{
+		this.nota = nota;
 	}
 }
 
