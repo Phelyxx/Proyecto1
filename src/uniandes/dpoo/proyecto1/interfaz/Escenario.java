@@ -16,6 +16,7 @@ public class Escenario extends JFrame implements ActionListener
 	//abajo
 	private PanelAbajo abajo;
 	private JButton btnReiniciar;
+	private JButton btnAtras;
 	//arriba
 	private Panelimagen imagen;
 	//centro
@@ -106,6 +107,10 @@ public class Escenario extends JFrame implements ActionListener
 		btnReiniciar.addActionListener(this);
 		btnReiniciar.setActionCommand("V");
 		
+		btnAtras = new JButton ("VOLVER A PLANEACIÓN ");
+		btnAtras.addActionListener(this);
+		btnAtras.setActionCommand("A");
+		
 		
 		centro.add(txtSemestre1,BorderLayout.CENTER);
 		centro.add(txtSemestre2,BorderLayout.CENTER);
@@ -130,6 +135,7 @@ public class Escenario extends JFrame implements ActionListener
 		
 
 		abajo.add(btnReiniciar, BorderLayout.CENTER);
+		abajo.add(btnAtras, BorderLayout.CENTER);
 		add(imagen, BorderLayout.NORTH);
 	    imagen.add(titulo, BorderLayout.NORTH);
 		
@@ -149,13 +155,18 @@ public class Escenario extends JFrame implements ActionListener
 	{
 		String comando = e.getActionCommand();
 		// TODO Auto-generated method stub
-		if(comando.equals("V"))
+		if(comando.equals("A"))
 		{
 			MateriasFuturas menu = new MateriasFuturas();
 			menu.setVisible(true);
 			this.dispose();
 		} 
-		
+		else if(comando.equals("V"))
+		{
+			MenuDelEstudiante menu = new MenuDelEstudiante();
+			menu.setVisible(true);
+			this.dispose();
+		} 
 	}
 
 }
