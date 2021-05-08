@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 
 public class PanelVentanaPrincipal extends JFrame implements ActionListener
 {
-	private static final long serialVersionUID = 0L;
+	private static final long serialVersionUID = 1L;
 	private JButton btnEstudiante;
 	private JButton btnCoordinador;	
 	private JTextField txtEnunciado1;
@@ -22,6 +22,7 @@ public class PanelVentanaPrincipal extends JFrame implements ActionListener
 	private Panelimagen imagenArriba;
 	//centro
 	private PanelCentro centro;
+	private PanelAbajo abajo;
 	
 	
 	
@@ -40,8 +41,10 @@ public class PanelVentanaPrincipal extends JFrame implements ActionListener
 		
 		
 		centro = new PanelCentro();
+		abajo = new PanelAbajo();
 		
 		add(centro, BorderLayout.CENTER);
+		add(abajo, BorderLayout.SOUTH);
 		
 		add(imagenArriba, BorderLayout.NORTH);
 		
