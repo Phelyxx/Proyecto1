@@ -42,6 +42,7 @@ public class EscenarioCo extends JFrame implements ActionListener
 	private JTextField vacio14;
 	private JTextField vacio15;
 	private JTextField vacio16;
+	private JTextField vacio17;
 	
 	
 	public EscenarioCo()
@@ -95,6 +96,7 @@ public class EscenarioCo extends JFrame implements ActionListener
 		vacio14= new JTextField(5);
 		vacio15= new JTextField(5);
 		vacio16= new JTextField(5);
+		vacio17= new JTextField(5);
 		
 		titulo = new JTextField("Ver materias planeado",2);
 		titulo.setEditable(false);
@@ -126,7 +128,7 @@ public class EscenarioCo extends JFrame implements ActionListener
 		centro.add(vacio14,BorderLayout.CENTER);
 		centro.add(vacio15,BorderLayout.CENTER);
 		centro.add(vacio16,BorderLayout.CENTER);
-		
+		centro.add(vacio17,BorderLayout.CENTER);
 
 		abajo.add(btnReiniciar, BorderLayout.CENTER);
 		add(imagen, BorderLayout.NORTH);
