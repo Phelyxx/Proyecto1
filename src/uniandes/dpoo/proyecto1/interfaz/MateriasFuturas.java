@@ -30,6 +30,7 @@ public class MateriasFuturas extends JFrame implements ActionListener
 		private JTextField vacio;
 		private JTextField vacio1;
 		private JButton btnEscenario;
+		private JButton btnAgregar;
 		
 		
 		public MateriasFuturas() 
@@ -71,6 +72,10 @@ public class MateriasFuturas extends JFrame implements ActionListener
 			btnReiniciar.addActionListener(this);
 			btnReiniciar.setActionCommand("V");
 			
+			btnAgregar = new JButton ("Agregar");
+			btnAgregar.addActionListener(this);
+			btnAgregar.setActionCommand("A");
+			
 			btnEscenario = new JButton ("Ver escenario");
 			btnEscenario.addActionListener(this);
 			btnEscenario.setActionCommand("E");
@@ -80,8 +85,8 @@ public class MateriasFuturas extends JFrame implements ActionListener
 			centro.add(vacio,BorderLayout.CENTER);
 			centro.add(semestre,BorderLayout.CENTER);
 			centro.add(vacio1,BorderLayout.CENTER);
+			centro.add(btnAgregar,BorderLayout.CENTER);
 			centro.add(btnEscenario,BorderLayout.CENTER);
-			
 			
 			
 			abajo.add(btnReiniciar, BorderLayout.CENTER);
@@ -117,6 +122,10 @@ public class MateriasFuturas extends JFrame implements ActionListener
 				Escenario menu = new Escenario();
 				menu.setVisible(true);
 				this.dispose();
+			} 
+			else if (comando.equals("A"))
+			{
+				
 			} 
 		}
 	

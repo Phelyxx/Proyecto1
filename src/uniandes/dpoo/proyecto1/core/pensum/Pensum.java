@@ -15,6 +15,8 @@ import java.util.Map;
 public class Pensum
 {
 	private List<Curso> cursos;
+	
+	
 	public Pensum(List<Curso> cursos)
 	{
 		this.cursos = cursos;
