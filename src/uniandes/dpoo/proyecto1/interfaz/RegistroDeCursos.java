@@ -44,7 +44,6 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 	//abajo
 	private PanelAbajo abajo;
 	private JButton btnReiniciar;
-	private JButton btnAgregar;
 	//arriba
 	private Panelimagen imagen;
 	//centro
@@ -130,10 +129,6 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 		btnReiniciar.addActionListener(this);
 		btnReiniciar.setActionCommand("V");
 		
-		btnAgregar = new JButton ("Agregar");
-		btnAgregar.addActionListener(this);
-		btnAgregar.setActionCommand("E");
-		
 		centro.add(txtCursoTomado,BorderLayout.CENTER);
 		centro.add(inputCodigo,BorderLayout.CENTER);
 		centro.add(txtQueSemestre,BorderLayout.CENTER);
@@ -144,7 +139,6 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 		centro.add(inputNota,BorderLayout.CENTER);
 		centro.add(txtCaracteristicas,BorderLayout.CENTER);
 		centro.add(inputCaracteristica,BorderLayout.CENTER);
-		abajo.add(btnAgregar,BorderLayout.CENTER);
 		
 		 
 		abajo.add(btnReiniciar, BorderLayout.CENTER);
@@ -164,10 +158,6 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 			menu.setVisible(true);
 			menu.setEstudiante(estudiante);
 			this.dispose();
-		} 
-		if (comando.equals("A"))
-		{
-			
 		} 
 		if(fuente == inputCodigo)
 		{

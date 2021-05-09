@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 
 public class PanelVentanaPrincipal extends JFrame implements ActionListener
 {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 0L;
 	private JButton btnEstudiante;
 	private JButton btnCoordinador;	
 	private JTextField txtEnunciado1;
@@ -111,7 +111,7 @@ public class PanelVentanaPrincipal extends JFrame implements ActionListener
 			}
 			else
 			{
-				JOptionPane.showMessageDialog( this, "El cï¿½digo debe contener solo nï¿½meros.", "ERROR", JOptionPane.ERROR_MESSAGE );
+				JOptionPane.showMessageDialog( this, "El código debe contener solo números.", "ERROR", JOptionPane.ERROR_MESSAGE );
 			}
 		}
 		else if(comando.equals("C"))
@@ -126,7 +126,7 @@ public class PanelVentanaPrincipal extends JFrame implements ActionListener
 			}
 			else
 			{
-				JOptionPane.showMessageDialog( this, "El cï¿½digo debe contener solo nï¿½meros.", "ERROR", JOptionPane.ERROR_MESSAGE );
+				JOptionPane.showMessageDialog( this, "El código debe contener solo números.", "ERROR", JOptionPane.ERROR_MESSAGE );
 			}
 		}
 	}
