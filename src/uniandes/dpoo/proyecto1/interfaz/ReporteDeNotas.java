@@ -6,10 +6,17 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import uniandes.dpoo.proyecto1.core.estudiante.Coordinador;
+import uniandes.dpoo.proyecto1.core.estudiante.Estudiante;
+import uniandes.dpoo.proyecto1.core.pensum.Curso;
+import uniandes.dpoo.proyecto1.reporteador.CalculadoraReportes;
 
 public class ReporteDeNotas extends JFrame implements ActionListener
 {
@@ -26,37 +33,15 @@ private static final long serialVersionUID = 7L;
 	private JTextField titulo;
 	
 	
-	private JTextField txtmaterias;
-	private JTextField txtnotas;
-	private JTextField txtmaterias1;
-	private JTextField txtnotas1;
-	private JTextField vacio4;
 	private JTextField vacio;
-	private JTextField vacio1;
-	private JTextField vacio2;
-	private JTextField vacio3;
-	private JTextField vacio10;
-	private JTextField vacio9;
-	private JTextField vacio8;
-	private JTextField vacio7;
-	private JTextField vacio6;
-	private JTextField vacio5;
-	private JTextField vacio11;
-	private JTextField vacio12;
-	private JTextField vacio13;
-	private JTextField vacio14;
-	private JTextField vacio15;
-	private JTextField vacio16;
-	private JTextField vacio17;
-	private JTextField vacio18;
-	private JTextField vacio19;
 	
 	private JTextField txtpromedio;
 	private JTextField txtsegunCreditos;
 	private JTextField txtacomulado;
 	private JTextField txtestado;
+	private Estudiante estudiante;
 	
-	public ReporteDeNotas()
+	public ReporteDeNotas(Estudiante estudiante)
 	{
 		    setSize(900,700);
 			setTitle("Mi Banner");
@@ -74,73 +59,78 @@ private static final long serialVersionUID = 7L;
 			abajo = new PanelAbajo();
 			add(abajo, BorderLayout.SOUTH);
 			abajo.setBackground(new Color (255,255,200));
+			setEstudiante(estudiante);
 			
-			txtmaterias = new JTextField ("Materias semestre 1 ");
-			txtmaterias.setEditable(false);
-			txtmaterias.setBackground(new Color (255,255,230));
-			txtmaterias.setBorder(null);
+			Map<String, List<Curso>> cursosAprobados = estudiante.darCursosAprobados();
 			
-			txtnotas = new JTextField ("Notas:  ");
-			txtnotas.setEditable(false);
-			txtnotas.setBackground(new Color (255,255,230));
-			txtnotas.setBorder(null);
-			
-			txtnotas1 = new JTextField ("Notas: ");
-			txtnotas1.setEditable(false);
-			txtnotas1.setBackground(new Color (255,255,230));
-			txtnotas1.setBorder(null);
-			
-			txtmaterias1 = new JTextField ("Materias semestre 2 ");
-			txtmaterias1.setEditable(false);
-			txtmaterias1.setBackground(new Color (255,255,230));
-			txtmaterias1.setBorder(null);
-			
-			
-			txtpromedio = new JTextField ("Promedio semestre 1: 38,2");
-			txtpromedio.setEditable(false);
-			txtpromedio.setBackground(new Color (255,255,230));
-			txtpromedio.setBorder(null);
-			
-			txtsegunCreditos = new JTextField ("Semestre segun creditos: 2");
-			txtsegunCreditos.setEditable(false);
-			txtsegunCreditos.setBackground(new Color (255,255,230));
-			txtsegunCreditos.setBorder(null);
-			
-			txtacomulado = new JTextField ("promedio acumulado: 38,8");
-			txtacomulado.setEditable(false);
-			txtacomulado.setBackground(new Color (255,255,230));
-			txtacomulado.setBorder(null);
+			if(cursosAprobados != null)
+			{
+				for (Map.Entry<String, List<Curso>> entry : cursosAprobados.entrySet()) 
+				{
+					List<Curso> cursos = entry.getValue();
+					for(Curso curso: cursos)
+					{
+						String codigo = curso.darCodigo();
+						int semestre = curso.darSemestre();
+						String nota = curso.darNota();
+						Integer creditos = curso.darCreditos();
+						String cbu = "";
+						String tipoI= "";
+						String epsilon= "";
+						String tipoE = "";
+						if(curso.esCBU())
+						{
+							cbu = "CBU";
+						}
+						if(curso.esTipoI())
+						{
+							tipoI = "Tipo I";
+						}
+						if(curso.esTipoE())
+						{
+							tipoE = "Tipo E";
+						}
+						if(curso.esEpsilon())
+						{
+							epsilon = "Epsilon";
+						}
+						vacio = new JTextField(codigo + " Semestre " + String.valueOf(semestre) + " Nota " + nota +
+								" Creditos " + creditos.toString() + " " + cbu +  " " + tipoI + "  " + epsilon + "  " + tipoE, 5);
+						centro.add(vacio,BorderLayout.CENTER);
+
+					}
+					Float promedio = CalculadoraReportes.calcularPromedioSemestre(estudiante, entry.getKey());
+					txtpromedio = new JTextField ("Promedio semestre " + entry.getKey() + ": " + promedio.toString());
+					txtpromedio.setEditable(false);
+					txtpromedio.setBackground(new Color (255,255,230));
+					txtpromedio.setBorder(null);
+					centro.add(txtpromedio,BorderLayout.CENTER);
+				} 
+				Map<String, Integer> creditos_semestre = CalculadoraReportes.calcularCreditosPorSemestre(estudiante);
+				int sumacreditos = 0;
+				for(Map.Entry<String, Integer> entry : creditos_semestre.entrySet()) 
+				{
+					System.out.println(entry.getValue());
+					sumacreditos += entry.getValue();
+				}
+				Float semestre = (float) (((sumacreditos / 138) * 10) + 1);
+				Integer semestreint = Math.round(semestre);
+				txtsegunCreditos = new JTextField ("Semestre según creditos: " + semestreint.toString());
+				txtsegunCreditos.setEditable(false);
+				txtsegunCreditos.setBackground(new Color (255,255,230));
+				txtsegunCreditos.setBorder(null);
+				
+				Float pga = CalculadoraReportes.calcularPGA(estudiante);
+				txtacomulado = new JTextField ("Promedio General Acumulado: " + pga.toString());
+				txtacomulado.setEditable(false);
+				txtacomulado.setBackground(new Color (255,255,230));
+				txtacomulado.setBorder(null);
+			}
 			
 			txtestado = new JTextField ("Estado del estudiante: Activo");
 			txtestado.setEditable(false);
 			txtestado.setBackground(new Color (255,255,230));
 			txtestado.setBorder(null);
-			
-			
-			vacio = new JTextField("ip",5);
-			vacio1 = new JTextField("35",5);
-			vacio2 = new JTextField("mel",5);
-			vacio3= new JTextField("30",5);
-			vacio4 = new JTextField("ingles",5);
-			vacio5 = new JTextField("41",5);
-			vacio6 = new JTextField("lineal",5);
-			vacio7= new JTextField("40",5);
-			vacio8= new JTextField("diferencial",5);
-			vacio9 = new JTextField("41",5);
-			vacio10 = new JTextField("cbu tipo colombia",5);
-			vacio11= new JTextField("49",5);
-			vacio12= new JTextField("fisica 1",5);
-			vacio13= new JTextField("39",5);
-			vacio14= new JTextField("fisica 2",5);
-			vacio15= new JTextField("40",5);
-			vacio16= new JTextField("escritura 1",5);
-			vacio17= new JTextField("35",5);
-			vacio18= new JTextField("escritura 2",5);
-			vacio19= new JTextField("50",5);
-		
-			
-			
-			
 			btnReiniciar = new JButton ("VOLVER");
 			btnReiniciar.addActionListener(this);
 			btnReiniciar.setActionCommand("V");
@@ -151,32 +141,6 @@ private static final long serialVersionUID = 7L;
 			titulo.setBorder(null);
 			titulo.setBackground(new Color (255,255,230));
 			
-			centro.add(txtmaterias,BorderLayout.CENTER);
-			centro.add(txtnotas,BorderLayout.CENTER);
-			centro.add(txtmaterias1,BorderLayout.CENTER);
-			centro.add(txtnotas1,BorderLayout.CENTER);
-			centro.add(vacio,BorderLayout.CENTER);
-			centro.add(vacio1,BorderLayout.CENTER);
-			centro.add(vacio2,BorderLayout.CENTER);
-			centro.add(vacio3,BorderLayout.CENTER);
-			centro.add(vacio4,BorderLayout.CENTER);
-			centro.add(vacio5,BorderLayout.CENTER);
-			centro.add(vacio6,BorderLayout.CENTER);
-			centro.add(vacio7,BorderLayout.CENTER);
-			centro.add(vacio8,BorderLayout.CENTER);
-			centro.add(vacio9,BorderLayout.CENTER);
-			centro.add(vacio10,BorderLayout.CENTER);
-			centro.add(vacio11,BorderLayout.CENTER);
-			centro.add(vacio12,BorderLayout.CENTER);
-			centro.add(vacio13,BorderLayout.CENTER);
-			centro.add(vacio14,BorderLayout.CENTER);
-			centro.add(vacio15,BorderLayout.CENTER);
-			centro.add(vacio16,BorderLayout.CENTER);
-			centro.add(vacio17,BorderLayout.CENTER);
-			centro.add(vacio18,BorderLayout.CENTER);
-			centro.add(vacio19,BorderLayout.CENTER);
-			
-			centro.add(txtpromedio, BorderLayout.CENTER);
 			centro.add(txtsegunCreditos, BorderLayout.CENTER);
 			centro.add(txtacomulado, BorderLayout.CENTER);
 			centro.add(txtestado, BorderLayout.CENTER);
@@ -188,13 +152,12 @@ private static final long serialVersionUID = 7L;
 	}
 
 
-	 public static void main(String[] args)
-		{
-			
-	      ReporteDeNotas ventana = new  ReporteDeNotas();
-			ventana.setVisible(true);
-			
-		}
+	 private void setEstudiante(Estudiante estudiante)
+	{
+		this.estudiante = estudiante;
+	}
+
+
 
 
 	@Override
@@ -204,8 +167,9 @@ private static final long serialVersionUID = 7L;
 		// TODO Auto-generated method stub
 		if(comando.equals("V"))
 		{
-			MenuDelEstudiante menu = new MenuDelEstudiante();
+			MenuDelEstudiante menu = new MenuDelEstudiante(null);
 			menu.setVisible(true);
+			menu.setEstudiante(estudiante);
 			this.dispose();
 		} 
 	 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
 public class Curso
 {
 	private String nombre;
@@ -23,7 +22,6 @@ public class Curso
 	private String semanas;
 	private int nivel;
 	private int semestre;
-   
 	public Curso(String nombre, String codigo, int creditos, boolean esObligatorio, boolean esElectivaIngenieria, boolean esElectivaProfesional,
 			boolean esCBU, boolean esTipoI, boolean esTipoE, boolean esEpsilon,  List<Prerrequisito> prerrequisitos,
 			List<Correquisito> correquisitos, String semanas, int nivel, int semestre, String nota )
@@ -99,6 +97,10 @@ public class Curso
 	{
 		return esTipoI;
 	}
+	public boolean esObligatorio()
+	{
+		return esObligatorio;
+	}
 	public void setCorrequisitos(List<Correquisito> correquisitos)
 	{
 		this.correquisitos = correquisitos;
@@ -114,6 +116,23 @@ public class Curso
 	public void setNota(String nota)
 	{
 		this.nota = nota;
+	}
+	public int darNivel()
+	{
+		return nivel;
+	}
+	public String darSemanas()
+	{
+		return semanas;
+	}
+	public void setTipoE(boolean b)
+	{
+		this.esTipoE = b;
+	}
+	public void setCreditos(int creditos)
+	{
+		this.creditos = creditos;
+		
 	}
 }
 

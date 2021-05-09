@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import uniandes.dpoo.proyecto1.core.estudiante.Estudiante;
 import uniandes.dpoo.proyecto1.core.pensum.LoaderPensum;
 import uniandes.dpoo.proyecto1.core.pensum.Pensum;
 
@@ -29,15 +30,15 @@ public class CargarPensum extends JFrame implements ActionListener
 	//titulo
 	private JTextField titulo;
 	private JButton cargar;
-	public static Pensum pensum;
+	private Estudiante estudiante;
 
-	public CargarPensum ()
+	public CargarPensum (Estudiante estudiante)
 	{
 		setSize(900,700);
 		setTitle("Mi Banner");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
+		setEstudiante(estudiante);
 
 		centro = new PanelCentro();
 		centro.setBackground(new Color (255,255,200));
@@ -47,9 +48,6 @@ public class CargarPensum extends JFrame implements ActionListener
 		abajo = new PanelAbajo();
 		add(abajo, BorderLayout.SOUTH);
 		abajo.setBackground(new Color (255,255,200));
-
-
-
 
 		btnReiniciar = new JButton ("VOLVER");
 		btnReiniciar.addActionListener(this);
@@ -72,15 +70,6 @@ public class CargarPensum extends JFrame implements ActionListener
 	}
 
 
-	public static void main(String[] args)
-	{
-
-		CargarPensum ventana = new  CargarPensum();
-		ventana.setVisible(true);
-
-	}
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -88,9 +77,9 @@ public class CargarPensum extends JFrame implements ActionListener
 		// TODO Auto-generated method stub
 		if(comando.equals("V"))
 		{
-			MenuDelEstudiante menu = new MenuDelEstudiante();
+			MenuDelEstudiante menu = new MenuDelEstudiante(null);
 			menu.setVisible(true);
-			menu.setPensum(pensum);
+			menu.setEstudiante(estudiante);
 			this.dispose();
 		} 
 		else if(comando.equals("C"))
@@ -99,20 +88,21 @@ public class CargarPensum extends JFrame implements ActionListener
 			cargarPensum(nombre);
 		}
 	}
-	public Pensum darPensum()
+	public void setEstudiante(Estudiante estudiante)
 	{
-		return pensum;
+		this.estudiante = estudiante;
 	}
 	public void cargarPensum(String nombre)
 	{
 		try
 		{
-			pensum = LoaderPensum.cargarArchivo("./data/" + nombre);
+			Pensum pensum = LoaderPensum.cargarArchivo("./data/" + nombre);
 			JOptionPane.showMessageDialog( this, "Se cargó el archivo "  + "./data/" + nombre + " con la información del Pensum", "Archivo cargado", JOptionPane.DEFAULT_OPTION );
 			this.dispose();
-			MenuDelEstudiante menu = new MenuDelEstudiante();
+			estudiante.setPensum(pensum);
+			MenuDelEstudiante menu = new MenuDelEstudiante(null);
 			menu.setVisible(true);
-			menu.setPensum(pensum);
+			menu.setEstudiante(estudiante);
 
 		}
 		catch (FileNotFoundException d)

@@ -33,18 +33,7 @@ public class CursosVistos extends JFrame implements ActionListener
 
 	private JTextField txtvariables;
 	private JTextField vacio;
-	private JTextField vacio1;
-	private JTextField vacio2;
-	private JTextField vacio3;
-	private JTextField vacio4;
-	private JTextField vacio5;
-	private JTextField vacio6;
-	private JTextField vacio7;
-	private JTextField vacio8;
-	private JTextField vacio9;
-	private JTextField vacio10;
 	private Estudiante estudiante;
-	private Pensum pensum;
 
 
 	public CursosVistos(Estudiante estudiante)
@@ -53,7 +42,7 @@ public class CursosVistos extends JFrame implements ActionListener
 		setTitle("Mi Banner");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
+		setEstudiante(estudiante);
 
 		centro = new PanelCentro();
 		centro.setLayout(new BorderLayout());
@@ -116,11 +105,7 @@ public class CursosVistos extends JFrame implements ActionListener
 					}
 					vacio = new JTextField(codigo + " Semestre " + String.valueOf(semestre) + " Nota " + nota + " " + cbu +  
 							" " + tipoI + "  " + epsilon + "  " + tipoE, 5);
-					//curso_inscribir = LoaderPensum.encontrarCurso(cursospensum, codigo);
-					//entry.getValue().add(curso_inscribir);
-					//this.cursosAprobados.put(numSemestre, entry.getValue());
 					centro.add(vacio,BorderLayout.CENTER);
-					System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
 				}
 			} 
 		}
@@ -132,16 +117,6 @@ public class CursosVistos extends JFrame implements ActionListener
 
 	}
 
-
-	public static void main(String[] args)
-	{
-
-		CursosVistos ventana = new  CursosVistos(null);
-		ventana.setVisible(true);
-
-	}
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -149,9 +124,8 @@ public class CursosVistos extends JFrame implements ActionListener
 		// TODO Auto-generated method stub
 		if(comando.equals("V"))
 		{
-			MenuDelEstudiante menu = new MenuDelEstudiante();
+			MenuDelEstudiante menu = new MenuDelEstudiante(null);
 			menu.setVisible(true);
-			menu.setPensum(pensum);
 			menu.setEstudiante(estudiante);
 			this.dispose();
 		} 
@@ -163,11 +137,6 @@ public class CursosVistos extends JFrame implements ActionListener
 		this.estudiante = estudiante;
 	}
 
-
-	public void setPensum(Pensum pensum)
-	{
-		this.pensum = pensum;
-	}
 	
 
 

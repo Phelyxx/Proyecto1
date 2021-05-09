@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -50,12 +51,15 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 	//titulo
 	private JTextField titulo;
 
-	private Pensum pensum;
 	private Estudiante estudiante;
+
+	private JTextField txtCreditos;
+	private JTextField inputCreditos;
+	private int creditos;
 	
 	
 	
-	public RegistroDeCursos()
+	public RegistroDeCursos(Estudiante estudiante)
 	{
 		setSize(900,700);
 		setTitle("Mi Banner");
@@ -65,14 +69,14 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 		centro = new PanelCentro();
 		add(centro, BorderLayout.CENTER);
 		centro.setLayout(new BorderLayout());
-		centro.setLayout(new GridLayout(4,2));
+		centro.setLayout(new GridLayout(16,1));
 		centro.setBackground(new Color (255,255,200));
 		imagen = new Panelimagen();
 		imagen.setBackground(new Color (255,255,200));
 		abajo = new PanelAbajo();
 		add(abajo, BorderLayout.SOUTH);
 		abajo.setBackground(new Color (255,255,200));
-		
+		setEstudiante(estudiante);
 		
 
 		
@@ -88,13 +92,18 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 		txtQueSemestre.setBackground(new Color (255,255,230));
 		txtQueSemestre.setBorder(null);
 		
+		txtCreditos = new JTextField ("Creditos del curso: ");
+		txtCreditos.setEditable(false);
+		txtCreditos.setBackground(new Color (255,255,230));
+		txtCreditos.setBorder(null);
+		
 		txtNota = new JTextField ("Nota (Ejemplo: 4.8, A, R, I): ");
 		txtNota.setEditable(false);
 		txtNota.setBackground(new Color (255,255,230));
 		txtNota.setBorder(null);
 		
 		txtCaracteristicas = new JTextField ("Caracteristica especial (requisitos\r\n"
-				+ "cumplidos) (Ejemplo: No, Tipo I): ");
+				+ "cumplidos) (Ejemplo: No, Tipo E): ");
 		txtCaracteristicas.setEditable(false);
 		txtCaracteristicas.setBackground(new Color (255,255,230));
 		txtCaracteristicas.setBorder(null);
@@ -109,6 +118,8 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 		inputCodigo.addActionListener(this);
 		inputSemestre = new JTextField(5);
 		inputSemestre.addActionListener(this);
+		inputCreditos = new JTextField(5);
+		inputCreditos.addActionListener(this);
 		inputNota = new JTextField(5);
 		inputNota.addActionListener(this);
 		inputCaracteristica = new JTextField(5);
@@ -122,6 +133,8 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 		centro.add(inputCodigo,BorderLayout.CENTER);
 		centro.add(txtQueSemestre,BorderLayout.CENTER);
 		centro.add(inputSemestre,BorderLayout.CENTER);
+		centro.add(txtCreditos, BorderLayout.CENTER);
+		centro.add(inputCreditos, BorderLayout.CENTER);
 		centro.add(txtNota,BorderLayout.CENTER);
 		centro.add(inputNota,BorderLayout.CENTER);
 		centro.add(txtCaracteristicas,BorderLayout.CENTER);
@@ -133,19 +146,6 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 	    imagen.add(titulo, BorderLayout.NORTH);
 		
 	}
-	
-	
-	
-	public static void main(String[] args)
-	{
-		
-      RegistroDeCursos ventana = new  RegistroDeCursos();
-		ventana.setVisible(true);
-		
-	}
-
-
-
 
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -154,48 +154,45 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 		// TODO Auto-generated method stub
 		if(comando.equals("V"))
 		{
-			MenuDelEstudiante menu = new MenuDelEstudiante();
+			MenuDelEstudiante menu = new MenuDelEstudiante(null);
 			menu.setVisible(true);
-			System.out.println(pensum);
-			menu.setPensum(pensum);
+			menu.setEstudiante(estudiante);
 			this.dispose();
 		} 
 		if(fuente == inputCodigo)
 		{
-			Curso encontrado = LoaderPensum.encontrarCurso(pensum.consultarCursos(), e.getActionCommand());
-			System.out.println(encontrado);
-			JOptionPane.showMessageDialog(rootPane, "Curso " + encontrado.darCodigo() + " encontrado");
+			JOptionPane.showMessageDialog(rootPane, "Curso digitado");
 			this.codigo = e.getActionCommand();
 		}
 		if(fuente == inputSemestre)
 		{
 			JOptionPane.showMessageDialog(rootPane, "Semestre digitado");
-			System.out.println(e.getActionCommand());	
 			this.numSemestre = e.getActionCommand();
+		}
+		if(fuente == inputCreditos)
+		{
+			JOptionPane.showMessageDialog(rootPane, "Creditos digitados");
+			this.creditos = Integer.parseInt(e.getActionCommand());
 		}
 		if(fuente == inputNota)
 		{
 			JOptionPane.showMessageDialog(rootPane, "Nota digitada");
-			System.out.println(e.getActionCommand());	
 			this.nota = e.getActionCommand();
 		}
 		if(fuente == inputCaracteristica)
 		{
 			JOptionPane.showMessageDialog(rootPane, "Caracteristica digitada");
-			caracteristicaEspecial = e.getActionCommand();
-			estudiante.setPensum(pensum);
-			estudiante.agregarCurso(codigo, numSemestre, nota, caracteristicaEspecial);
-			System.out.println(estudiante.darCursosAprobados().entrySet());
+			this.caracteristicaEspecial = e.getActionCommand();
+			String agregado = estudiante.agregarCurso(codigo, numSemestre, creditos, nota, caracteristicaEspecial);
+			if(!agregado.equals("Curso añadido"))
+			{
+				JOptionPane.showMessageDialog( this, agregado, "Error", JOptionPane.ERROR_MESSAGE );
+			}
 			this.dispose();
-			MenuDelEstudiante menu = new MenuDelEstudiante();
+			MenuDelEstudiante menu = new MenuDelEstudiante(null);
 			menu.setVisible(true);
 			menu.setEstudiante(estudiante);
-			menu.setPensum(pensum);
 		}
-	}
-	public void setPensum(Pensum pensum)
-	{	
-		this.pensum = pensum;
 	}
 	public void setEstudiante(Estudiante estudiante)
 	{

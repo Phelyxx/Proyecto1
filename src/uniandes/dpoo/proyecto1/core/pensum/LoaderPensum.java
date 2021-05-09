@@ -65,7 +65,7 @@ public class LoaderPensum
 			}	
 			List<Prerrequisito> prerrequisitos = new ArrayList<>();
 			List<Correquisito> correquisitos = new ArrayList<>();
-			String semanas =partes[12];
+			String semanas = partes[12];
 			int nivel = Integer.parseInt(partes[13]);
 			int semestre = Integer.parseInt(partes[14].replaceAll(" ", ""));
 			Curso elCurso = new Curso(nombreCurso, codigoCurso, creditos, esObligatorio, esElectivaIngenieria, 
@@ -78,9 +78,10 @@ public class LoaderPensum
 
 		br.close();
 
-		Pensum calculadora = new Pensum(cursos);
-		calculadora = cargarCorrequisitos(calculadora, nombreArchivo);
-		return calculadora;
+		Pensum pensum = new Pensum(cursos);
+		pensum = cargarCorrequisitos(pensum, nombreArchivo);
+		pensum = cargarPrerequisitos(pensum, nombreArchivo);
+		return pensum;
 	}
 
 	public static Pensum cargarCorrequisitos(Pensum pensum, String nombreArchivo) throws FileNotFoundException, IOException
@@ -89,8 +90,8 @@ public class LoaderPensum
 		String linea = br.readLine(); // La primera línea del archivo se ignora porque únicamente tiene los títulos de
 		// las columnas
 		linea = br.readLine();	
-		List<Curso> cursos;
-		cursos = pensum.consultarCursos();
+		List<Curso> cursosNuevos = new ArrayList<Curso>();
+		List<Curso> cursos = pensum.consultarCursos();
 
 		while (linea != null) // Cuando se llegue al final del archivo, linea tendrá el valor null
 		{
@@ -134,6 +135,7 @@ public class LoaderPensum
 						String[] strcoreqigual = partes[11].split("\\=");
 						for(String strcoreqequal : strcoreqigual)
 						{
+
 							List<Curso> listacorreqs = new ArrayList<>();
 							Correquisito correquisitoindividual = new Correquisito(listacorreqs);
 							Curso encontrado = encontrarCurso(cursos, strcoreqequal);
@@ -143,14 +145,14 @@ public class LoaderPensum
 						}
 					}
 					curso.setCorrequisitos(correquisitos);
+					cursosNuevos.add(curso);
 				}
 			}
 			linea = br.readLine(); // Leer la siguiente línea
 		}
-
 		br.close();
 
-		Pensum calculadora = new Pensum(cursos);
+		Pensum calculadora = new Pensum(cursosNuevos);
 		return calculadora;
 	}
 
@@ -160,8 +162,8 @@ public class LoaderPensum
 		String linea = br.readLine(); // La primera línea del archivo se ignora porque únicamente tiene los títulos de
 		// las columnas
 		linea = br.readLine();	
-		List<Curso> cursos;
-		cursos = pensum.consultarCursos();
+		List<Curso> cursosNuevos = new ArrayList<Curso>();
+		List<Curso> cursos = pensum.consultarCursos();
 
 		while (linea != null) // Cuando se llegue al final del archivo, linea tendrá el valor null
 		{
@@ -171,7 +173,7 @@ public class LoaderPensum
 				if(curso.darCodigo().equals(partes[1]))
 				{
 					List<Prerrequisito> prerrequisitos = curso.darPrerrequisitos(); // Crea lista de prerrequisitos (Lista de listas cursos)
-					if(partes[11].contains("+"))
+					if(partes[10].contains("+"))
 					{
 						String [] strprereqs = partes[10].split("\\+");
 						for(String strprereq : strprereqs)
@@ -200,9 +202,9 @@ public class LoaderPensum
 							}
 						}
 					}
-					else if(partes[11].contains("=") && partes[11].contains("+") == false)
+					else if(partes[10].contains("=") && partes[10].contains("+") == false)
 					{
-						String[] strprerreqigual = partes[11].split("\\=");
+						String[] strprerreqigual = partes[10].split("\\=");
 						for(String strprrereqequal : strprerreqigual)
 						{
 							List<Curso> listaprerreqs = new ArrayList<>();
@@ -214,6 +216,7 @@ public class LoaderPensum
 						}
 					}
 					curso.setPrerrequisitos(prerrequisitos);
+					cursosNuevos.add(curso);
 				}
 			}
 			linea = br.readLine(); // Leer la siguiente línea
@@ -221,7 +224,7 @@ public class LoaderPensum
 
 		br.close();
 
-		Pensum calculadora = new Pensum(cursos);
+		Pensum calculadora = new Pensum(cursosNuevos);
 		return calculadora;
 	}
 

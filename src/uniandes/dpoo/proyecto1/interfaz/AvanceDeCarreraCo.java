@@ -12,12 +12,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import uniandes.dpoo.proyecto1.core.estudiante.Coordinador;
 import uniandes.dpoo.proyecto1.core.estudiante.Estudiante;
 import uniandes.dpoo.proyecto1.core.pensum.Curso;
 import uniandes.dpoo.proyecto1.verificador.RequisitosGrado;
 
 
-public class AvanceDeCarrera extends JFrame implements ActionListener
+public class AvanceDeCarreraCo extends JFrame implements ActionListener
 {
 	/**
 	 * 
@@ -36,8 +37,9 @@ public class AvanceDeCarrera extends JFrame implements ActionListener
 	private JTextField txtRequisitos;
 	private JTextField txtRequisito;
 	private Estudiante estudiante;
+	private Coordinador coordinador;
 
-	public AvanceDeCarrera(Estudiante estudiante)
+	public AvanceDeCarreraCo(Estudiante estudiante, Coordinador coordinador)
 	{
 		setSize(900,700);
 		setTitle("Mi Banner");
@@ -45,6 +47,7 @@ public class AvanceDeCarrera extends JFrame implements ActionListener
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		setEstudiante(estudiante);
+		setCoordinador(coordinador);
 		centro = new PanelCentro();
 		centro.setLayout(new BorderLayout());
 		centro.setLayout(new GridLayout(16,1));
@@ -105,6 +108,10 @@ public class AvanceDeCarrera extends JFrame implements ActionListener
 		this.estudiante = estudiante;
 		
 	}
+    private void setCoordinador(Coordinador coordinador)
+{
+	this.coordinador = coordinador;	
+}
 
 
 	@Override
@@ -114,9 +121,8 @@ public class AvanceDeCarrera extends JFrame implements ActionListener
 		// TODO Auto-generated method stub
 		if(comando.equals("V"))
 		{
-			MenuDelEstudiante menu = new MenuDelEstudiante(null);
+			EstudiantePanel menu = new EstudiantePanel(estudiante, coordinador);
 			menu.setVisible(true);
-			menu.setEstudiante(estudiante);
 			this.dispose();
 		} 
 	}
