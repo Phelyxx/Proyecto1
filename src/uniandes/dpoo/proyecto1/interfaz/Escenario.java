@@ -102,7 +102,7 @@ private Estudiante estudiante;
 	{
 		String comando = e.getActionCommand();
 		// TODO Auto-generated method stub
-		if(comando.equals("A"))
+		if(comando.equals("V"))
 		{
 			this.dispose();
 			MenuDelEstudiante menu = new MenuDelEstudiante(null);
@@ -110,12 +110,7 @@ private Estudiante estudiante;
 			menu.setVisible(true);
 			
 		} 
-		else if(comando.equals("V"))
-		{
-			MenuDelEstudiante menu = new MenuDelEstudiante();
-			menu.setVisible(true);
-			this.dispose();
-		} 
+		
 	}
 
 	public void setEstudiante(Estudiante estudiante)

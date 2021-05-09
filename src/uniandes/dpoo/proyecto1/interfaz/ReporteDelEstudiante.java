@@ -36,6 +36,8 @@ private static final long serialVersionUID = 7L;
 	private Panelimagen imagenArriba;
 	//centro
 	private PanelCentro centro;
+	private JList list;
+	private DefaultListModel listaEstudiantes;
 	//abajo
 	private PanelAbajo abajo;
 	private JButton btnReiniciar;  

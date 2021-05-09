@@ -21,7 +21,7 @@ public class CargarPensum extends JFrame implements ActionListener
 
 	private static final long serialVersionUID = 12L;
 	//arriba
-	private Panelimagen imagen;
+	private Panelimagen imagenArriba;
 	//centro
 	private PanelCentro centro;
 	//abajo
@@ -42,8 +42,8 @@ public class CargarPensum extends JFrame implements ActionListener
 
 		centro = new PanelCentro();
 		centro.setBackground(new Color (255,255,200));
-		imagen = new Panelimagen();
-		imagen.setBackground(new Color (255,255,200));
+		imagenArriba = new Panelimagen();
+		imagenArriba.setBackground(new Color (255,255,200));
 		add(centro, BorderLayout.CENTER);
 		abajo = new PanelAbajo();
 		add(abajo, BorderLayout.SOUTH);
@@ -64,8 +64,8 @@ public class CargarPensum extends JFrame implements ActionListener
 
 		centro.add(cargar,BorderLayout.CENTER);
 		abajo.add(btnReiniciar, BorderLayout.CENTER);
-		add(imagen, BorderLayout.NORTH);
-		imagen.add(titulo, BorderLayout.NORTH);
+		add(imagenArriba, BorderLayout.NORTH);
+		imagenArriba.add(titulo, BorderLayout.NORTH);
 
 	}
 

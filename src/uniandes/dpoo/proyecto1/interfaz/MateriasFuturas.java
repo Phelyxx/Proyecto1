@@ -121,10 +121,6 @@ private static final long serialVersionUID = 5L;
 				Escenario menu = new Escenario(estudiante);
 				menu.setVisible(true);
 			} 
-			else if (comando.equals("A"))
-			{
-				
-			} 
 		}
 		public void setEstudiante(Estudiante estudiante)
 		{
