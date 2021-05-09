@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import uniandes.dpoo.proyecto1.core.estudiante.Coordinador;
+import uniandes.dpoo.proyecto1.core.estudiante.Estudiante;
+
 public class EstudiantePanel extends JFrame implements ActionListener
 {
 
@@ -26,9 +29,10 @@ private static final long serialVersionUID = 7L;
 	 private JButton reporte;
 	 private JButton escenarios;
 	 private JButton avancePensum;
+	 private Estudiante estudiante;
+	 private Coordinador coordinador;
 	
-	
-	public EstudiantePanel()
+	public EstudiantePanel(Estudiante estudiante, Coordinador coordinador)
 	{
 		    setSize(900,700);
 			setTitle("Mi Banner");
@@ -44,6 +48,8 @@ private static final long serialVersionUID = 7L;
 			abajo = new PanelAbajo();
 			add(abajo, BorderLayout.SOUTH);
 			abajo.setBackground(new Color (255,255,200));
+			setEstudiante(estudiante);
+			setCoordinador(coordinador);
 			
 			reporte = new JButton("Reporte");
 			escenarios = new JButton("Escenarios");
@@ -80,13 +86,17 @@ private static final long serialVersionUID = 7L;
 	}
 
 
-	 public static void main(String[] args)
-		{
-			
-	      EstudiantePanel ventana = new  EstudiantePanel();
-			ventana.setVisible(true);
-			
-		}
+	 private void setCoordinador(Coordinador coordinador)
+	{
+		 this.coordinador = coordinador;
+	}
+
+
+	private void setEstudiante(Estudiante estudiante)
+	{
+		 this.estudiante = estudiante;
+	}
+
 
 
 	@Override
@@ -96,25 +106,25 @@ private static final long serialVersionUID = 7L;
 		// TODO Auto-generated method stub
 		if(comando.equals("V"))
 		{
-			ReporteDelEstudiante menu = new ReporteDelEstudiante();
+			ReporteDelEstudiante menu = new ReporteDelEstudiante(coordinador);
 			menu.setVisible(true);
 			this.dispose();
 		} 
 		else if(comando.equals("1"))
 		{
-			ReporteDeNotasCo menu = new ReporteDeNotasCo();
+			ReporteDeNotasCo menu = new ReporteDeNotasCo(estudiante, coordinador);
 			menu.setVisible(true);
 			this.dispose();
 		}
 		else if(comando.equals("2"))
 		{
-		    MateriasFuturasCo menu = new MateriasFuturasCo();
+		    MateriasFuturasCo menu = new MateriasFuturasCo(estudiante, coordinador);
 			menu.setVisible(true);
 			this.dispose();
 		}
 		else if(comando.equals("3"))
 		{
-			AvanceDeMateriasCo menu = new AvanceDeMateriasCo();
+			AvanceDeCarreraCo menu = new AvanceDeCarreraCo(estudiante, coordinador);
 			menu.setVisible(true);
 			this.dispose();
 		}

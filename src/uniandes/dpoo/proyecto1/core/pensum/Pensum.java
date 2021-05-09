@@ -15,8 +15,6 @@ import java.util.Map;
 public class Pensum
 {
 	private List<Curso> cursos;
-	
-	
 	public Pensum(List<Curso> cursos)
 	{
 		this.cursos = cursos;
@@ -30,7 +28,6 @@ public class Pensum
 	{
 		try
 		{
-			System.out.print(mensaje + ": ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			return reader.readLine();
 		}
@@ -44,13 +41,10 @@ public class Pensum
 	
 	private Pensum ejecutarCargarPensum()
 	{
-		System.out.println("\n" + "Cargar un archivo de atletas" + "\n");
-
 		String archivo = "./data/pensum.csv";
 		try
 		{
 			Pensum pensum = LoaderPensum.cargarArchivo(archivo);
-			System.out.println("Se cargó el archivo " + archivo + " con información de los Juegos Olímpicos.");
 			return pensum;
 		}
 		catch (FileNotFoundException e)
@@ -60,7 +54,6 @@ public class Pensum
 		catch (IOException e)
 		{
 			System.out.println("ERROR: hubo un problema leyendo el archivo.");
-			System.out.println(e.getMessage());
 		}
 		return null;
 	}		
