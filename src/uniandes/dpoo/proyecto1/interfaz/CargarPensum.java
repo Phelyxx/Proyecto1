@@ -34,7 +34,7 @@ public class CargarPensum extends JFrame implements ActionListener
 
 	public CargarPensum (Estudiante estudiante)
 	{
-		setSize(900,700);
+		setSize(800,400);
 		setTitle("Mi Banner");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
