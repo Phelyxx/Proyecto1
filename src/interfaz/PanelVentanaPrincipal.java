@@ -28,7 +28,7 @@ public class PanelVentanaPrincipal extends JFrame implements ActionListener
 
 	public PanelVentanaPrincipal()
 	{
-		setSize(900,700);
+		setSize(800,400);
 		setTitle("Mi Banner");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
