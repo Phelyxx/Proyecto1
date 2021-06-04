@@ -14,8 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import interfaz.Coordinador;
-import interfaz.Estudiante;
+import modelo.core.pensum.Coordinador;
+import modelo.core.pensum.Estudiante;
 import modelo.core.pensum.Pensum;
 import modelo.persistencia.LoaderPensum;
 
@@ -129,10 +129,12 @@ public class MenuDelCoordinador extends JFrame implements ActionListener
 			catch (FileNotFoundException d)
 			{
 				JOptionPane.showMessageDialog( this, "El archivo indicado no se encontró.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+				LoaderPensum.logError(d);
 			}
 			catch (IOException d)
 			{
 				JOptionPane.showMessageDialog( this, "Hubo un problema leyendo el archivo.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+				LoaderPensum.logError(d);
 
 			}	
 		}
@@ -147,10 +149,12 @@ public class MenuDelCoordinador extends JFrame implements ActionListener
 			catch (FileNotFoundException d)
 			{
 				JOptionPane.showMessageDialog( this, "El archivo indicado no se encontró.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+				LoaderPensum.logError(d);
 			}
 			catch (IOException d)
 			{
 				JOptionPane.showMessageDialog( this, "Hubo un problema leyendo el archivo.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+				LoaderPensum.logError(d);
 
 			}	
 		}

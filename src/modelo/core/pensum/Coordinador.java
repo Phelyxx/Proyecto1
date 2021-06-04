@@ -1,9 +1,8 @@
-package interfaz;
+package modelo.core.pensum;
 
 import java.io.IOException;
 import java.util.List;
 
-import modelo.core.pensum.Pensum;
 import modelo.persistencia.LoaderEstudiantes;
 
 

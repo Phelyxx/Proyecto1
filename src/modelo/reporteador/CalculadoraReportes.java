@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import interfaz.Estudiante;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
+import modelo.persistencia.LoaderPensum;
 
 public class CalculadoraReportes
 {
@@ -24,15 +25,12 @@ public class CalculadoraReportes
 					creditosSemestre += curso.darCreditos();
 				}
 				Double promedio = CalculadoraReportes.calcularPromedioSemestre(estudiante, entry.getKey());
-				System.out.println(promedio);
-				System.out.println(creditosSemestre);
 				pga += promedio * creditosSemestre;
 			} 
 			Map<String, Double> creditos_semestre = CalculadoraReportes.calcularCreditosPorSemestre(estudiante);
 			double sumacreditos = 0;
 			for(Map.Entry<String, Double> entry : creditos_semestre.entrySet()) 
 			{
-				System.out.println(entry.getValue());
 				sumacreditos += entry.getValue();
 			}
 			pga = pga / sumacreditos;
@@ -60,6 +58,7 @@ public class CalculadoraReportes
 				}
 				catch(NumberFormatException e)
 				{
+					LoaderPensum.logError(e);
 				}
 			}
 			promedio = conteocreditosnota/conteocreditos;

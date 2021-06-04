@@ -14,9 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import interfaz.Coordinador;
-import interfaz.Estudiante;
+import modelo.core.pensum.Coordinador;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
 import modelo.reporteador.CalculadoraReportes;
 
 public class ReporteDeNotasCo extends JFrame implements ActionListener
@@ -80,7 +80,6 @@ private static final long serialVersionUID = 7L;
 						String tipoI= "";
 						String epsilon= "";
 						String tipoE = "";
-						System.out.println(curso.esCBU());
 						if(curso.esCBU())
 						{
 							cbu = "CBU";

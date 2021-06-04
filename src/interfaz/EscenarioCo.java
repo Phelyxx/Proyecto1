@@ -12,10 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-
-import interfaz.Coordinador;
-import interfaz.Estudiante;
+import modelo.core.pensum.Coordinador;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
 
 public class EscenarioCo extends JFrame implements ActionListener
 {

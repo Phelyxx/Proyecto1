@@ -3,9 +3,9 @@ package modelo.verificador;
 import java.util.List;
 import java.util.Map;
 
-import interfaz.Estudiante;
 import modelo.core.pensum.Correquisito;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
 import modelo.core.pensum.Prerrequisito;
 import modelo.persistencia.LoaderPensum;
 import modelo.reporteador.CalculadoraReportes;

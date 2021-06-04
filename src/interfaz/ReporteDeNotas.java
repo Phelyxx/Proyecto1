@@ -14,9 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import interfaz.Coordinador;
-import interfaz.Estudiante;
+import modelo.core.pensum.Coordinador;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
 import modelo.reporteador.CalculadoraReportes;
 
 public class ReporteDeNotas extends JFrame implements ActionListener
@@ -111,7 +111,6 @@ private static final long serialVersionUID = 7L;
 				int sumacreditos = 0;
 				for(Entry<String, Double> entry : creditos_semestre.entrySet()) 
 				{
-					System.out.println(entry.getValue());
 					sumacreditos += entry.getValue();
 				}
 				Float semestre = (float) (((sumacreditos / 138) * 10) + 1);

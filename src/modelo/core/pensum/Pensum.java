@@ -9,6 +9,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import modelo.persistencia.LoaderPensum;
+
 public class Pensum
 {
 	private List<Curso> cursos;
@@ -43,8 +45,8 @@ public class Pensum
 		}
 		catch (IOException e)
 		{
-			System.out.println("Error leyendo de la consola");
 			e.printStackTrace();
+			LoaderPensum.logError(d);
 		}
 		return null;
 	}

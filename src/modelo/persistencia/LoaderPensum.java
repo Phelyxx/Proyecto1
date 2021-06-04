@@ -1,12 +1,18 @@
 package modelo.persistencia;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -16,12 +22,13 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.Sheet; 
 import org.apache.poi.ss.usermodel.Row; 
 import org.apache.poi.ss.usermodel.Cell; 
-import org.apache.poi.xssf.usermodel.XSSFWorkbook; 
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFCell; 
 import org.apache.poi.xssf.usermodel.XSSFRow; 
 
 import modelo.core.pensum.Correquisito;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
 import modelo.core.pensum.Pensum;
 import modelo.core.pensum.Prerrequisito;
 
@@ -243,8 +250,8 @@ public class LoaderPensum
 		Pensum calculadora = new Pensum(cursosNuevos, null);
 		return calculadora;
 	}
-	
-	
+
+
 	public static Curso encontrarCurso(List<Curso> cursos, String codigo)
 	{
 		for(Curso curso: cursos)
@@ -268,40 +275,127 @@ public class LoaderPensum
 			Map<Integer, List<String>> data = new HashMap<>();
 			int i = 0;
 			for (Row row : sheet) {
-			    data.put(i, new ArrayList<String>());
-			    Cell cell = row.getCell(10);
-			    if(cell != null)
-			    {
-			        switch (cell.getCellType()) {
-			            case NUMERIC:
-			            	double disponibilidad = cell.getNumericCellValue();
-			            	if(disponibilidad >= 1)
-			            	{
-			            		Cell codigoCell = row.getCell(4);
-						        switch (codigoCell.getCellType()) {
-					            case STRING:
-					            	String codigoCurso = codigoCell.getStringCellValue();
-					            	System.out.println(codigoCurso);
-					            	if(!codigoDisponibles.contains(codigoCurso))
-					            	{
-					            	codigoDisponibles.add(codigoCurso);
-					            	}
-					            	break;
-					            default: 
-						        }
-			            	}
-			            	break;
-			            default: 
-			        }
-			    }    
-			    }
-			    i++;
+				data.put(i, new ArrayList<String>());
+				Cell cell = row.getCell(10);
+				if(cell != null)
+				{
+					switch (cell.getCellType()) {
+					case NUMERIC:
+						double disponibilidad = cell.getNumericCellValue();
+						if(disponibilidad >= 1)
+						{
+							Cell codigoCell = row.getCell(4);
+							switch (codigoCell.getCellType()) {
+							case STRING:
+								String codigoCurso = codigoCell.getStringCellValue();
+								codigoCurso = codigoCurso.replaceAll(" ", "");
+								if(!codigoDisponibles.contains(codigoCurso))
+								{
+									codigoDisponibles.add(codigoCurso);
+								}
+								break;
+							default: 
+							}
+						}
+						break;
+					default: 
+					}
+				}    
+			}
+			i++;
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			logError(e);
+			e.printStackTrace();
+		}
+		return codigoDisponibles;
+	}
+	public static List<String> cargarReformado(String nombreArchivo, Estudiante estudiante) throws FileNotFoundException
+	{
+		List<String> codigoNuevos = new ArrayList<String>();
+		FileInputStream file = new FileInputStream(new File(nombreArchivo));
+		try
+		{
+			@SuppressWarnings("resource")
+			XSSFWorkbook workbook = new XSSFWorkbook(file);
+			Sheet sheet = workbook.getSheetAt(0);
+			Map<Integer, List<String>> data = new HashMap<>();
+			int i = 0;
+			for (Row row : sheet) {
+				data.put(i, new ArrayList<String>());
+				Cell cellCursos = row.getCell(0);
+				if(cellCursos != null)
+				{
+					switch (cellCursos.getCellType()) {
+					case STRING:
+						String codigoCursos = cellCursos.getStringCellValue();
+						System.out.println(codigoCursos);
+						String[] arrayCursos = codigoCursos.split(",");
+						int tamanio = arrayCursos.length;
+						int conteo = 0;
+						Map<String, List<Curso>> cursosAprobados = estudiante.darCursosAprobados();
+						for (Map.Entry<String, List<Curso>> entry : cursosAprobados.entrySet()) 
+						{
+							List<Curso> cursos = entry.getValue();
+							for(Curso curso: cursos)
+							{
+								for(String cursoReformado: arrayCursos)
+								{
+									if(cursoReformado.equals(curso.darCodigo()))
+									{
+										conteo += 1;
+									}
+								}
+							}
+						}
+						if(conteo >= tamanio)
+						{
+							Cell codigoCell = row.getCell(1);
+							switch (codigoCell.getCellType()) {
+							case STRING:
+								String codigoCurso = codigoCell.getStringCellValue();
+								System.out.println(codigoCurso);
+								codigoCurso = codigoCurso.replaceAll(" ", "");
+								Curso curso = LoaderPensum.encontrarCurso(estudiante.darPensum().consultarCursos(), codigoCurso);
+								if(curso != null)
+								{
+									codigoNuevos.add(curso.darCodigo());
+								}
+							default: 
+							}
+						}
+						break;
+					default: 
+					}
+				}    
+			}
+			i++;
 		}
 		catch (IOException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			logError(e);
 		}
-		return codigoDisponibles;
+		return codigoNuevos;
+	}
+
+	public static void logError(Exception e)
+	{
+		try {
+			FileWriter writer = new FileWriter("./data/log.txt", true);
+			BufferedWriter bufferedWriter = new BufferedWriter(writer);
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			Date date = new Date(); 
+			bufferedWriter.write("Fecha del error: " + dateFormat.format(date));
+			bufferedWriter.newLine();
+			e.printStackTrace(new PrintWriter(bufferedWriter));
+			bufferedWriter.newLine();
+			bufferedWriter.close();
+		} catch (IOException d) {
+			d.printStackTrace();
+		}
 	}
 }

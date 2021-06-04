@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import interfaz.Estudiante;
+import modelo.core.pensum.Estudiante;
 import modelo.core.pensum.Pensum;
 import modelo.persistencia.LoaderPensum;
 
@@ -98,9 +98,11 @@ public class CargarCartelera extends JFrame implements ActionListener
 		try
 		{
 			Pensum pensum = estudiante.darPensum();
-			List<String> cartelera = LoaderPensum.cargarCartelera("./data/" + nombre);
 			if(pensum != null)
 			{
+				List<String> cartelera = LoaderPensum.cargarCartelera("./data/" + nombre);
+				String codeSemestre = JOptionPane.showInputDialog(null,"Ingrese el semestre de la cartelera (Ej: 2021-1):  ");
+				cartelera.add(0, codeSemestre);
 				pensum.setCartelera(cartelera);
 				JOptionPane.showMessageDialog( this, "Se cargó el archivo "  + "./data/" + nombre + " con la información de la cartelera", "Archivo cargado", JOptionPane.DEFAULT_OPTION );
 				this.dispose();
@@ -118,10 +120,7 @@ public class CargarCartelera extends JFrame implements ActionListener
 		catch (FileNotFoundException d)
 		{
 			JOptionPane.showMessageDialog( this, "El archivo indicado no se encontró.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+			LoaderPensum.logError(d);
 		}
-		catch (IOException d)
-		{
-			JOptionPane.showMessageDialog( this, "Hubo un problema leyendo el archivo.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
-
-		}	}
+	}
 }

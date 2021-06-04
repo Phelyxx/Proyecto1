@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import interfaz.Estudiante;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
 import modelo.reporteador.CalculadoraReportes;
 
 public class RequisitosGrado

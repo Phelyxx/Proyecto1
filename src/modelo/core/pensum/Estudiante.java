@@ -1,4 +1,4 @@
-package interfaz;
+package modelo.core.pensum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,10 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import modelo.core.pensum.Correquisito;
-import modelo.core.pensum.Curso;
-import modelo.core.pensum.Pensum;
-import modelo.core.pensum.Prerrequisito;
 import modelo.persistencia.LoaderPensum;
 import modelo.verificador.RequisitosGrado;
 import modelo.verificador.ValidadorRegistro;
@@ -62,8 +58,12 @@ public class Estudiante
 			List<Correquisito> correquisitos = new ArrayList<Correquisito>();
 			curso_inscribir = new Curso("", codigo, creditos, false, false, false, false, false, false, false, prerrequisitos, correquisitos, 
 					"16",1, 1, nota);
+			List<Curso> crearcursossemestre = new ArrayList<>();
+			crearcursossemestre.add(curso_inscribir);
+			this.cursosAprobados.put(numSemestre, crearcursossemestre);
+			cumpleRestricciones = "Curso añadido";
 		}	
-		if(cumpleRestricciones.equals("Curso añadido"))	
+		else if(cumpleRestricciones.equals("Curso añadido"))	
 		{
 			if(cursosAprobados.containsKey(numSemestre))
 			{
@@ -182,9 +182,7 @@ public class Estudiante
 	{
 		return codigo;
 	}
-	public void actualizarCurso(String codigo)
-	{	
-	}
+
 	public Pensum darPensum()
 	{
 		return pensum;

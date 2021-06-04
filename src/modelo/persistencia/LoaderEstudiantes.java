@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import interfaz.Coordinador;
-import interfaz.Estudiante;
+import modelo.core.pensum.Coordinador;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
 
 public class LoaderEstudiantes
 {

@@ -12,8 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import interfaz.Coordinador;
-import interfaz.Estudiante;
+import modelo.core.pensum.Coordinador;
+import modelo.core.pensum.Estudiante;
 import modelo.verificador.RequisitosGrado;
 
 

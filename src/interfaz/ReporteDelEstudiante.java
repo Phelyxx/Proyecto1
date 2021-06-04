@@ -23,8 +23,8 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import interfaz.Coordinador;
-import interfaz.Estudiante;
+import modelo.core.pensum.Coordinador;
+import modelo.core.pensum.Estudiante;
 
 public class ReporteDelEstudiante extends JFrame implements ListSelectionListener, ActionListener
 {

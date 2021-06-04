@@ -26,7 +26,6 @@ public class ReporteNotas
 					notasSemestre.put(pair.getKey(), Float.parseFloat(nota));
 				}
 			}
-			System.out.println(pair.getKey() + " = " + pair.getValue());
 			it.remove(); // avoids a ConcurrentModificationException
 		}
 	}

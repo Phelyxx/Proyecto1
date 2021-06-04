@@ -5,14 +5,16 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import interfaz.Estudiante;
+import modelo.core.pensum.Estudiante;
 import modelo.core.pensum.Pensum;
 import modelo.persistencia.LoaderPensum;
 
@@ -96,6 +98,8 @@ public class CargarPensum extends JFrame implements ActionListener
 	{
 		try
 		{
+		     FileWriter myWriter = new FileWriter("filename.txt");
+		     myWriter.close();
 			Pensum pensum = LoaderPensum.cargarArchivo("./data/" + nombre);
 			JOptionPane.showMessageDialog( this, "Se cargó el archivo "  + "./data/" + nombre + " con la información del Pensum", "Archivo cargado", JOptionPane.DEFAULT_OPTION );
 			this.dispose();
@@ -108,10 +112,17 @@ public class CargarPensum extends JFrame implements ActionListener
 		catch (FileNotFoundException d)
 		{
 			JOptionPane.showMessageDialog( this, "El archivo indicado no se encontró.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+			LoaderPensum.logError(d);
+
 		}
 		catch (IOException d)
 		{
 			JOptionPane.showMessageDialog( this, "Hubo un problema leyendo el archivo.", d.getMessage(), JOptionPane.ERROR_MESSAGE );
+			LoaderPensum.logError(d);
 
-		}	}
+		}	
+	}
+
+
+
 }

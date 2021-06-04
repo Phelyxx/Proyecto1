@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,9 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import interfaz.Estudiante;
 import modelo.core.pensum.Correquisito;
 import modelo.core.pensum.Curso;
+import modelo.core.pensum.Estudiante;
 import modelo.core.pensum.Prerrequisito;
 import modelo.persistencia.LoaderPensum;
 import modelo.reporteador.CalculadoraReportes;
@@ -42,6 +43,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
     private JButton ActualizarCurso;
     private JButton cargar;
     private JButton cargarCartelera;
+    private JButton cargarReformado;
     private PanelCentro centro;
     private JTextField titulo;
   //abajo
@@ -81,6 +83,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		ActualizarCurso = new JButton("Actualizar Curso");
 		cargar = new JButton("Cargar Pensum");
 		cargarCartelera = new JButton("Cargar Cartelera");
+		cargarReformado = new JButton("Cargar Programa Reformado");
 		
 		
 		
@@ -96,6 +99,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		ActualizarCurso.addActionListener(this);
 		cargar.addActionListener(this);
 		cargarCartelera.addActionListener(this);
+		cargarReformado.addActionListener(this);
 		
 		Map<String, List<Curso>> cursosAprobados = new HashMap<String, List<Curso>>();
 		Map<String, List<Curso>> cursosPlaneados = new HashMap<String, List<Curso>>();
@@ -111,6 +115,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		GenerarReporteDeNotas.setActionCommand("G");
 		cargar.setActionCommand("C");
 		cargarCartelera.setActionCommand("CA");
+		cargarReformado.setActionCommand("CR");
 		HacerPractica.setActionCommand("HP");
 		RetirarCurso.setActionCommand("RC");
 		ActualizarCurso.setActionCommand("AC");
@@ -129,8 +134,9 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		centro.add(HacerPractica,BorderLayout.CENTER);
 		centro.add(RetirarCurso,BorderLayout.CENTER);
 		centro.add(ActualizarCurso,BorderLayout.CENTER);
-		centro.add(cargar,BorderLayout.CENTER);
 		centro.add(cargarCartelera,BorderLayout.CENTER);
+		centro.add(cargar,BorderLayout.CENTER);
+		centro.add(cargarReformado,BorderLayout.CENTER);
 		
 		titulo = new JTextField("Menu Del Estudiante",2);
 		titulo.setEditable(false);
@@ -211,6 +217,23 @@ public void actionPerformed(ActionEvent e)
         CargarCartelera menu = new CargarCartelera(estudiante);
 		menu.setVisible(true);
 		this.dispose();
+	}
+	
+	else if (comando.equals("CR"))
+	{
+		String nombre = JOptionPane.showInputDialog(null,"Ingrese nombre del archivo del programa reformado:  ");
+        CargarReformado menu;
+		try
+		{
+			menu = new CargarReformado(estudiante, nombre);
+			menu.setVisible(true);
+			this.dispose();
+		}
+		catch (FileNotFoundException e1)
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	else if (comando.equals("RC"))

@@ -108,7 +108,6 @@ public class PanelVentanaPrincipal extends JFrame implements ActionListener
 				MenuDelEstudiante menu = new MenuDelEstudiante(codigo);		
 				menu.setVisible(true);
 				this.dispose();
-				System.out.println(codigo);
 			}
 			else
 			{
