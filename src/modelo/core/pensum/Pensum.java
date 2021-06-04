@@ -46,7 +46,7 @@ public class Pensum
 		catch (IOException e)
 		{
 			e.printStackTrace();
-			LoaderPensum.logError(d);
+			LoaderPensum.logError(e);
 		}
 		return null;
 	}
