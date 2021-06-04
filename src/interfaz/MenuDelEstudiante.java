@@ -41,6 +41,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
     private JButton RetirarCurso;
     private JButton ActualizarCurso;
     private JButton cargar;
+    private JButton cargarCartelera;
     private PanelCentro centro;
     private JTextField titulo;
   //abajo
@@ -79,6 +80,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		RetirarCurso = new JButton("Retirar Curso");
 		ActualizarCurso = new JButton("Actualizar Curso");
 		cargar = new JButton("Cargar Pensum");
+		cargarCartelera = new JButton("Cargar Cartelera");
 		
 		
 		
@@ -93,6 +95,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		RetirarCurso.addActionListener(this);
 		ActualizarCurso.addActionListener(this);
 		cargar.addActionListener(this);
+		cargarCartelera.addActionListener(this);
 		
 		Map<String, List<Curso>> cursosAprobados = new HashMap<String, List<Curso>>();
 		Map<String, List<Curso>> cursosPlaneados = new HashMap<String, List<Curso>>();
@@ -107,6 +110,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		VerPromedioGeneral.setActionCommand("VP");
 		GenerarReporteDeNotas.setActionCommand("G");
 		cargar.setActionCommand("C");
+		cargarCartelera.setActionCommand("CA");
 		HacerPractica.setActionCommand("HP");
 		RetirarCurso.setActionCommand("RC");
 		ActualizarCurso.setActionCommand("AC");
@@ -126,6 +130,7 @@ public class MenuDelEstudiante extends JFrame implements ActionListener
 		centro.add(RetirarCurso,BorderLayout.CENTER);
 		centro.add(ActualizarCurso,BorderLayout.CENTER);
 		centro.add(cargar,BorderLayout.CENTER);
+		centro.add(cargarCartelera,BorderLayout.CENTER);
 		
 		titulo = new JTextField("Menu Del Estudiante",2);
 		titulo.setEditable(false);
@@ -200,6 +205,14 @@ public void actionPerformed(ActionEvent e)
 		menu.setVisible(true);
 		this.dispose();
 	}
+	
+	else if (comando.equals("CA"))
+	{
+        CargarCartelera menu = new CargarCartelera(estudiante);
+		menu.setVisible(true);
+		this.dispose();
+	}
+	
 	else if (comando.equals("RC"))
 	{
 		String codigo  = JOptionPane.showInputDialog(null,"Ingrese el codigo del curso:  ");

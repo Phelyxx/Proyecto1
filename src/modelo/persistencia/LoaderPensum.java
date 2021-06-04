@@ -1,13 +1,24 @@
 package modelo.persistencia;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.poi.ss.usermodel.Workbook; 
+import org.apache.poi.ss.usermodel.Sheet; 
+import org.apache.poi.ss.usermodel.Row; 
+import org.apache.poi.ss.usermodel.Cell; 
+import org.apache.poi.xssf.usermodel.XSSFWorkbook; 
+import org.apache.poi.xssf.usermodel.XSSFCell; 
+import org.apache.poi.xssf.usermodel.XSSFRow; 
 
 import modelo.core.pensum.Correquisito;
 import modelo.core.pensum.Curso;
@@ -83,7 +94,7 @@ public class LoaderPensum
 
 		br.close();
 
-		Pensum pensum = new Pensum(cursos);
+		Pensum pensum = new Pensum(cursos, null);
 		pensum = cargarCorrequisitos(pensum, nombreArchivo);
 		pensum = cargarPrerequisitos(pensum, nombreArchivo);
 		return pensum;
@@ -157,7 +168,7 @@ public class LoaderPensum
 		}
 		br.close();
 
-		Pensum calculadora = new Pensum(cursosNuevos);
+		Pensum calculadora = new Pensum(cursosNuevos, null);
 		return calculadora;
 	}
 
@@ -229,10 +240,11 @@ public class LoaderPensum
 
 		br.close();
 
-		Pensum calculadora = new Pensum(cursosNuevos);
+		Pensum calculadora = new Pensum(cursosNuevos, null);
 		return calculadora;
 	}
-
+	
+	
 	public static Curso encontrarCurso(List<Curso> cursos, String codigo)
 	{
 		for(Curso curso: cursos)
@@ -243,5 +255,53 @@ public class LoaderPensum
 			}
 		}
 		return null;
+	}
+	public static List<String> cargarCartelera(String nombreArchivo) throws FileNotFoundException
+	{
+		List<String> codigoDisponibles = new ArrayList<String>();
+		FileInputStream file = new FileInputStream(new File(nombreArchivo));
+		try
+		{
+			@SuppressWarnings("resource")
+			XSSFWorkbook workbook = new XSSFWorkbook(file);
+			Sheet sheet = workbook.getSheetAt(0);
+			Map<Integer, List<String>> data = new HashMap<>();
+			int i = 0;
+			for (Row row : sheet) {
+			    data.put(i, new ArrayList<String>());
+			    Cell cell = row.getCell(10);
+			    if(cell != null)
+			    {
+			        switch (cell.getCellType()) {
+			            case NUMERIC:
+			            	double disponibilidad = cell.getNumericCellValue();
+			            	if(disponibilidad >= 1)
+			            	{
+			            		Cell codigoCell = row.getCell(4);
+						        switch (codigoCell.getCellType()) {
+					            case STRING:
+					            	String codigoCurso = codigoCell.getStringCellValue();
+					            	System.out.println(codigoCurso);
+					            	if(!codigoDisponibles.contains(codigoCurso))
+					            	{
+					            	codigoDisponibles.add(codigoCurso);
+					            	}
+					            	break;
+					            default: 
+						        }
+			            	}
+			            	break;
+			            default: 
+			        }
+			    }    
+			    }
+			    i++;
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return codigoDisponibles;
 	}
 }

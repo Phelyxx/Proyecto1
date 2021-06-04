@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.List;
 
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import interfaz.Estudiante;
+import sun.jvm.hotspot.ObjectHistogram;
 
 public class RegistroDeCursos  extends JFrame implements ActionListener
 {
@@ -156,7 +157,16 @@ public class RegistroDeCursos  extends JFrame implements ActionListener
 		if(fuente == inputCodigo)
 		{
 			JOptionPane.showMessageDialog(rootPane, "Curso digitado");
-			this.codigo = e.getActionCommand();
+			String codigo = e.getActionCommand();
+			List<String> codigosCartelera = estudiante.darPensum().consultarCursosDisponibles();
+			if(codigosCartelera.contains(codigo))
+			{
+				this.codigo = codigo;
+			}
+			else
+			{
+				JOptionPane.showMessageDialog( this, "El curso no está disponible en la cartelera del semestre", "Error", JOptionPane.ERROR_MESSAGE );
+			}
 		}
 		if(fuente == inputSemestre)
 		{

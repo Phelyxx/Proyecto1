@@ -9,19 +9,29 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-
-
-
 public class Pensum
 {
 	private List<Curso> cursos;
-	public Pensum(List<Curso> cursos)
+	private List<String> cursosDisponibles;
+	public Pensum(List<Curso> cursos, List<String> cursosDisponibles)
 	{
 		this.cursos = cursos;
+		this.cursosDisponibles = cursosDisponibles;
 	}
+	
 	public List<Curso> consultarCursos()
 	{
 		return cursos;
+	}
+	
+	public List<String> consultarCursosDisponibles()
+	{
+		return cursosDisponibles;
+	}
+	
+	public void setCartelera(List<String> cursosDisponibles)
+	{	
+		this.cursosDisponibles = cursosDisponibles;
 	}
 	
 	public String input(String mensaje)
