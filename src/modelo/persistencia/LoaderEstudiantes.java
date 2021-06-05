@@ -27,7 +27,6 @@ public class LoaderEstudiantes
 			{
 				if(estudiante.darCodigo() == partes[0])
 				{
-					System.out.println("X");
 					Curso curso = LoaderPensum.encontrarCurso(coordinador.darPensum().consultarCursos(), partes[1]);
 					estudiante.agregarCurso(curso.darCodigo(), partes[2], curso.darCreditos(), partes[3], "");
 				}

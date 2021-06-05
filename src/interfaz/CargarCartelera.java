@@ -85,7 +85,7 @@ public class CargarCartelera extends JFrame implements ActionListener
 		} 
 		else if(comando.equals("C"))
 		{
-			String nombre=JOptionPane.showInputDialog(null,"Ingrese nombre del archivo tipo pensum:  ");
+			String nombre=JOptionPane.showInputDialog(null,"Ingrese nombre del archivo tipo cartelera:  ");
 			cargarPensum(nombre);
 		}
 	}

@@ -331,7 +331,6 @@ public class LoaderPensum
 					switch (cellCursos.getCellType()) {
 					case STRING:
 						String codigoCursos = cellCursos.getStringCellValue();
-						System.out.println(codigoCursos);
 						String[] arrayCursos = codigoCursos.split(",");
 						int tamanio = arrayCursos.length;
 						int conteo = 0;
@@ -356,7 +355,6 @@ public class LoaderPensum
 							switch (codigoCell.getCellType()) {
 							case STRING:
 								String codigoCurso = codigoCell.getStringCellValue();
-								System.out.println(codigoCurso);
 								codigoCurso = codigoCurso.replaceAll(" ", "");
 								Curso curso = LoaderPensum.encontrarCurso(estudiante.darPensum().consultarCursos(), codigoCurso);
 								if(curso != null)

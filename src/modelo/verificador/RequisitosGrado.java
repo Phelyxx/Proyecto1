@@ -66,7 +66,6 @@ public class RequisitosGrado
 				codigoCursos.add(codigo);
 				if(curso.esEpsilon() == true);
 				{
-					System.out.println("X");
 					estadoRequisitosPensum.replace("CUMPLIMIENTO CURSO ÉPSILON", true);
 				}
 				if(curso.esTipoE() == true);
